@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -8,14 +8,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="System95"
+    Name="CubeOS95"
     Publisher="CN=Alloyd"
     Version="0.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="5e246178-8763-4666-8739-899b2cdb6899" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>System95</DisplayName>
+    <DisplayName>CubeOS 95</DisplayName>
     <PublisherDisplayName>Alloyd</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -34,8 +34,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="System95"
-        Description="System95"
+        DisplayName="CubeOS 95"
+        Description="CubeOS 95"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">

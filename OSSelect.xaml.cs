@@ -14,10 +14,10 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using System95.OperatingSystems.System95.Resources.Pages;
-using System95.OperatingSystems.System95Plus.Resources.Pages;
+using CubeOS95.OperatingSystems.CubeOS95.Resources.Pages;
+using CubeOS95.OperatingSystems.CubeOS95Plus.Resources.Pages;
 
-namespace System95
+namespace CubeOS95
 {
     public sealed partial class OSSelect : Page
     {
@@ -27,11 +27,15 @@ namespace System95
         }
         private void StartSystem95OS_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StartingSystem95), null, new SuppressNavigationTransitionInfo());
+            this.Frame.Navigate(typeof(StartingCubeOS95), null, new SuppressNavigationTransitionInfo());
         }
         private void StartSystem95PlusOS_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StartingSystem95Plus), null, new SuppressNavigationTransitionInfo());
+            this.Frame.Navigate(typeof(StartingCubeOS95Plus), null, new SuppressNavigationTransitionInfo());
+        }
+        private void GameSettings_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GameSettings), null, new SuppressNavigationTransitionInfo());
         }
     }
 }

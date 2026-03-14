@@ -1,9 +1,9 @@
 {
   "profiles": {
-    "System95 (Package)": {
+    "CubeOS 95 (Package)": {
       "commandName": "MsixPackage"
     },
-    "System95 (Unpackaged)": {
+    "CubeOS 95 (Unpackaged)": {
       "commandName": "Project"
     }
   }

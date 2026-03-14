@@ -20,7 +20,7 @@ using WinUIEx;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace System95
+namespace CubeOS95
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -46,6 +46,6 @@ namespace System95
             m_window.Activate();
         }
 
-        public static WindowEx m_window;
+        public static Window m_window;
     }
 }

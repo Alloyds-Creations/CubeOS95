@@ -1,0 +1,20 @@
+<Page
+    x:Class="CubeOS95.OperatingSystems.CubeOS95.Resources.Pages.PleaseWaitShutDown"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CubeOS95.OperatingSystems.CubeOS95.Resources.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid x:Name="RootGrid" Background="#3B72C2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Please wait" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/Assets/Fonts/chicagoflf.ttf#ChicagoFLF"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,60,0,0">
+                <TextBlock Text="CubeOS" FontSize="60" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel"/>
+                <TextBlock Text="95" FontSize="60" FontWeight="Bold" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" Margin="6,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

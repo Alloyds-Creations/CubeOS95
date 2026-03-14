@@ -1,0 +1,23 @@
+<Page
+    x:Class="CubeOS95.OperatingSystems.CubeOS95.Resources.Pages.BootScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CubeOS95.OperatingSystems.CubeOS95.Resources.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="BootPage"
+    mc:Ignorable="d"
+    Loaded="BootPage_Loaded">
+    <Grid x:Name="RootGrid" Background="#3B72C2">
+        <Grid.Resources>
+            <Storyboard x:Key="FadeStoryboard">
+                <DoubleAnimation From="0.0" To="1.0" Storyboard.TargetProperty="Opacity" 
+                                 Storyboard.TargetName="RootGrid" Duration="0:0:2"/>
+            </Storyboard>
+        </Grid.Resources>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="CubeOS" FontSize="60" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="95" FontSize="60" FontWeight="Bold" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" Margin="6,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

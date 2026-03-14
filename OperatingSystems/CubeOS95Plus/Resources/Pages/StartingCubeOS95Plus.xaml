@@ -1,0 +1,14 @@
+<Page
+    x:Class="CubeOS95.OperatingSystems.CubeOS95Plus.Resources.Pages.StartingCubeOS95Plus"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CubeOS95.OperatingSystems.CubeOS95Plus.Resources.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid>
+        <TextBlock Text="Starting CubeOS 95 Plus" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/OperatingSystems/System95/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="405,252,0,0"/>
+    </Grid>
+</Page>
