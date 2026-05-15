@@ -19,13 +19,13 @@ using WinRT.Interop;
 
 namespace CubeOS95
 {
-    public sealed partial class GameSettings : Page
+    public sealed partial class BIOS_Settings : Page
     {
-        public GameSettings()
+        public BIOS_Settings()
         {
             InitializeComponent();
         }
-        private void BackToOSSelect_Click(object sender, RoutedEventArgs e)
+        private void ExitWithoutSavingButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(OSSelect), null, new SuppressNavigationTransitionInfo());
         }

@@ -16,8 +16,8 @@
             </Storyboard>
         </Grid.Resources>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="CubeOS" FontSize="60" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel"/>
-            <TextBlock Text="95" FontSize="60" FontWeight="Bold" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" Margin="6,0,0,0"/>
+            <TextBlock Text="CubeOS" FontSize="60" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="95" FontSize="60" FontWeight="Bold" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="6,0,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

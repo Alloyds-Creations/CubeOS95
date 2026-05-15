@@ -24,11 +24,11 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
         MediaPlayer introPlay = new MediaPlayer();
         MediaPlayer outroPlay = new MediaPlayer();
         MediaPlayer clickPlay = new MediaPlayer();
-        private CanvasBitmap backgroundImage;
-        private CanvasImageBrush backgroundBrush;
+        private CanvasBitmap? backgroundImage;
+        private CanvasImageBrush? backgroundBrush;
 
-        public static RadioButton ChoiceRestart { get; set; }
-        public static RadioButton ChoiceShutdown { get; set; }
+        public static RadioButton? ChoiceRestart { get; set; }
+        public static RadioButton? ChoiceShutdown { get; set; }
         public CubeOS95Plus()
         {
             this.InitializeComponent();
@@ -104,7 +104,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
             clickPlay.Play();
 
             introPlay.Dispose();
-            outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_s95plus.mp3"));
+            outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_cos95plus.mp3"));
             outroPlay.Volume = 0.1;
             outroPlay.Play();
         }
@@ -118,14 +118,14 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
             clickPlay.Play();
 
             introPlay.Dispose();
-            outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_s95plus.mp3"));
+            outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_cos95plus.mp3"));
             outroPlay.Volume = 0.1;
             outroPlay.Play();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            introPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/intro_s95plus.mp3"));
+            introPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/intro_cos95plus.mp3"));
             introPlay.Volume = 0.1;
             introPlay.Play();
         }
@@ -198,7 +198,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
             clickPlay.Volume = 0.1;
             clickPlay.Play();
         }
-        private void SystemDOS_Click(object sender, RoutedEventArgs e)
+        private void CubeDOS_Click(object sender, RoutedEventArgs e)
         {
             clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
             clickPlay.Volume = 0.1;
@@ -302,7 +302,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
             {
                 introPlay.Dispose();
                 this.Frame.Navigate(typeof(PleaseWaitRestart), null, new SuppressNavigationTransitionInfo());
-                outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_s95plus.mp3"));
+                outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_cos95plus.mp3"));
                 outroPlay.Volume = 0.1;
                 outroPlay.Play();
             }
@@ -310,7 +310,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
             {
                 introPlay.Dispose();
                 this.Frame.Navigate(typeof(PleaseWaitShutDown), null, new SuppressNavigationTransitionInfo());
-                outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_s95plus.mp3"));
+                outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/outro_cos95plus.mp3"));
                 outroPlay.Volume = 0.1;
                 outroPlay.Play();
             }

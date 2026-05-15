@@ -1,4 +1,4 @@
-<Window
+<winex:WindowEx
     x:Class="CubeOS95.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,17 +8,17 @@
     xmlns:winex="using:WinUIEx"
     mc:Ignorable="d"
     Title="CubeOS 95">
-    
-    <Window.SystemBackdrop>
-        <MicaBackdrop Kind="Base"/>
-    </Window.SystemBackdrop>
-    
+
+    <winex:WindowEx.SystemBackdrop>
+        <MicaBackdrop Kind="BaseAlt"/>
+    </winex:WindowEx.SystemBackdrop>
+
     <Grid>
-        <TitleBar x:Name="AppTitleBar" Title="CubeOS 95" Subtitle="Pre-Alpha" Height="32" VerticalAlignment="Top">
+        <TitleBar x:Name="AppTitleBar" Title="CubeOS 95" Subtitle="Alpha 1" Height="32" VerticalAlignment="Top">
             <TitleBar.IconSource>
-                <ImageIconSource ImageSource="/Assets/StoreLogo.scale-200.png"/>
+                <ImageIconSource ImageSource="/Assets/StoreLogo.png"/>
             </TitleBar.IconSource>
         </TitleBar>
-        <Frame x:FieldModifier="public" x:Name="GameFrame" Canvas.ZIndex="0" RequestedTheme="Dark" Background="Black" Margin="0,32,0,0"/>
+        <Frame x:Name="GameFrame" RequestedTheme="Dark" Background="Black" Margin="0,32,0,0"/>
     </Grid>
-</Window>
+</winex:WindowEx>

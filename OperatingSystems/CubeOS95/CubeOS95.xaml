@@ -41,9 +41,13 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
-                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
-                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
-                                                            <ContentPresenter/>
+                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="#000000">
+                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="#ffffff">
+                                                            <Border x:Name="BorderRightAndBottom2" BorderThickness="0,0,2,2" BorderBrush="#808080">
+                                                                <Border x:Name="BorderLeftAndTop2" BorderThickness="2,2,0,0" BorderBrush="#dfdfdf">
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -57,11 +61,19 @@
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                                             Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                                             Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
@@ -69,11 +81,19 @@
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                                             Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                                             Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
@@ -263,9 +283,13 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
-                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
-                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
-                                                            <ContentPresenter/>
+                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="#000000">
+                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="#ffffff">
+                                                            <Border x:Name="BorderRightAndBottom2" BorderThickness="0,0,2,2" BorderBrush="#808080">
+                                                                <Border x:Name="BorderLeftAndTop2" BorderThickness="2,2,0,0" BorderBrush="#dfdfdf">
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -278,24 +302,40 @@
                                                             <VisualState x:Name="PointerOver">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
@@ -310,10 +350,9 @@
                         </Button>
                     </Grid>
                     <Grid x:Name="DifficultyLevelsAndMiniGames" Height="316" VerticalAlignment="Bottom" Margin="4,0,7,7" HorizontalAlignment="Stretch" Background="White">
-                        <Border x:Name="DifficultyLevelsAndMiniGamesorderRightAndBottom1" BorderThickness="1,1,0,0" Margin="1,1,0,0" BorderBrush="#3E3E3E"/>
-                        <Border x:Name="DifficultyLevelsAndMiniGamesorderRightAndBottom2" BorderThickness="1,1,0,0" BorderBrush="Black"/>
-                        <Border x:Name="DifficultyLevelsAndMiniGamesorderRightAndBottom3" BorderThickness="1,1,0,0" Margin="1,1,0,0" BorderBrush="#737373"/>
-
+                        <Border x:Name="DifficultyLevelsAndMiniGamesBorderRightAndBottom01" BorderThickness="1,1,0,0" Margin="1,1,0,0" BorderBrush="#3E3E3E"/>
+                        <Border x:Name="DifficultyLevelsAndMiniGamesBorderRightAndBottom02" BorderThickness="1,1,0,0" BorderBrush="Black"/>
+                        <Border x:Name="DifficultyLevelsAndMiniGamesBorderRightAndBottom03" BorderThickness="1,1,0,0" Margin="1,1,0,0" BorderBrush="#737373"/>
                         <StackPanel x:Name="DifficultyLevelRelaxPanel" Margin="37,17,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                             <Button x:Name="DifficutlyLevelRelax" Click="DifficutlyLevelRelax_Click" Padding="0" IsTabStop="False" CornerRadius="0" UseSystemFocusVisuals="False">
                                 <Button.Resources>
@@ -438,9 +477,13 @@ AutomationProperties.AccessibilityView="Raw" />
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
-                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
-                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
-                                                            <ContentPresenter x:Name="ContentPresenter"/>
+                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="#000000">
+                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="#ffffff">
+                                                            <Border x:Name="BorderRightAndBottom2" BorderThickness="0,0,2,2" BorderBrush="#808080">
+                                                                <Border x:Name="BorderLeftAndTop2" BorderThickness="2,2,0,0" BorderBrush="#dfdfdf">
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -453,34 +496,41 @@ AutomationProperties.AccessibilityView="Raw" />
                                                             <VisualState x:Name="PointerOver">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                             Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
-                                                                </Storyboard>
-                                                            </VisualState>
-                                                            <VisualState x:Name="Disabled">
-                                                                <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
-                        Storyboard.TargetProperty="Foreground">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundDisabled}" />
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
-
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -531,9 +581,13 @@ AutomationProperties.AccessibilityView="Raw" />
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
-                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
-                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
-                                                            <ContentPresenter/>
+                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="#000000">
+                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="#ffffff">
+                                                            <Border x:Name="BorderRightAndBottom2" BorderThickness="0,0,2,2" BorderBrush="#808080">
+                                                                <Border x:Name="BorderLeftAndTop2" BorderThickness="2,2,0,0" BorderBrush="#dfdfdf">
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -546,24 +600,40 @@ AutomationProperties.AccessibilityView="Raw" />
                                                             <VisualState x:Name="PointerOver">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
@@ -615,9 +685,13 @@ AutomationProperties.AccessibilityView="Raw" />
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
-                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
-                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
-                                                            <ContentPresenter/>
+                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="#000000">
+                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="#ffffff">
+                                                            <Border x:Name="BorderRightAndBottom2" BorderThickness="0,0,2,2" BorderBrush="#808080">
+                                                                <Border x:Name="BorderLeftAndTop2" BorderThickness="2,2,0,0" BorderBrush="#dfdfdf">
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -630,24 +704,40 @@ AutomationProperties.AccessibilityView="Raw" />
                                                             <VisualState x:Name="PointerOver">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
-                                     Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2"
+                 Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
@@ -1300,7 +1390,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_1.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Load save..." FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Load save..." FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -1384,7 +1474,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_2.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="New game" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="New game" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -1468,7 +1558,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_3.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Settings" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Settings" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -1534,7 +1624,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="SystemDOS" CornerRadius="0" Click="SystemDOS_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="CubeDOS" CornerRadius="0" Click="CubeDOS_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1552,7 +1642,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_4.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="CubeDOS" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="CubeDOS" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -1636,7 +1726,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_5.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Help" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Help" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -1720,7 +1810,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_6.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Shutdown" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Shutdown" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -1880,7 +1970,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </ToggleButton.Style>
                     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95/Resources/Icons/BeginIcon.png" Height="19" Width="16" Margin="4,0,0,0"/>
-                        <TextBlock Text="Begin" FontWeight="Black" VerticalAlignment="Center" Margin="11,0,0,0" HorizontalAlignment="Left" FontFamily="/Assets/Fonts/chicagoflf.ttf#ChicagoFLF" FontSize="16" Foreground="Black"/>
+                        <TextBlock Text="Begin" FontWeight="Black" VerticalAlignment="Center" Margin="11,0,0,0" HorizontalAlignment="Left" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progoth.ttf#progoth" FontSize="16" Foreground="Black"/>
                     </StackPanel>
                 </ToggleButton>
             </StackPanel>

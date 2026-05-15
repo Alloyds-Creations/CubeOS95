@@ -11,7 +11,7 @@
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="It's now safe to turn off the game" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/OperatingSystems/System95/Resources/Fonts/selawk.ttf#Selawk" Foreground="#F55C25" FontSize="60" TextAlignment="Center" TextWrapping="Wrap" Width="620"/>
+            <TextBlock Text="It's now safe to turn off the game" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/selawk.ttf#Selawik" Foreground="#F55C25" FontSize="60" TextAlignment="Center" TextWrapping="Wrap" Width="620"/>
             <Button x:Name="TurnOn" Visibility="Collapsed" IsTabStop="False" UseSystemFocusVisuals="False" CornerRadius="0" Padding="0" Click="TurnOn_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0">
                 <Button.Resources>
                     <ResourceDictionary>

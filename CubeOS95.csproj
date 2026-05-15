@@ -10,16 +10,16 @@
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
     <UseWPF>False</UseWPF>
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	  <SelfContained>true</SelfContained>
-	  <WindowsPackageType>None</WindowsPackageType>
-	  <PublishAot>true</PublishAot>
-	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <SelfContained>true</SelfContained>
+	<WindowsPackageType>None</WindowsPackageType>
+	<PublishAot>true</PublishAot>
+	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<Nullable>enable</Nullable>
+	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+	<AssemblyVersion>0.1.0</AssemblyVersion>
+	<FileVersion>0.1.0</FileVersion>
   </PropertyGroup>
-
-	<ItemGroup>
-	  <RuntimeHostConfigurationOption Include="System.Runtime.Loader.UseRidGraph" Value="true" />
-  </ItemGroup>
 	
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -28,7 +28,10 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\BarNewRomanPix.ttf" />
+    <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\BarNewRomanPixBold.ttf" />
     <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\chicagoflf.ttf" />
+    <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\DOSFont.ttf" />
     <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\marlett.ttf" />
     <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\opensans.ttf" />
     <Content Include="OperatingSystems\CubeOS95Plus\Resources\Fonts\progresspixel.ttf" />
@@ -62,8 +65,11 @@
     <Content Include="OperatingSystems\CubeOS95Plus\Resources\Sounds\intro_cos95plus.mp3" />
     <Content Include="OperatingSystems\CubeOS95Plus\Resources\Sounds\outro_cos95plus.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\chicagoflf.ttf" />
+    <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\DOSFont.ttf" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\marlett.ttf" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\opensans.ttf" />
+    <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\progoth.ttf" />
+    <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\progresspixel-bold.ttf" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\progresspixel.ttf" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Fonts\selawk.ttf" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Icons\BeginIcon.png" />
@@ -124,12 +130,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GameSettings.xaml">
+    <Page Update="BIOS_Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GameSettings.xaml">
+    <Page Update="BIOS_Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -152,6 +158,15 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="OperatingSystems\System95Plus\**" />
   </ItemGroup>
@@ -159,74 +174,27 @@
     <PRIResource Remove="OperatingSystems\System95\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="GameSettings.xaml" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\chicagoflf.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\marlett.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\opensans.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\progresspixel.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\selawk.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\BeginIcon.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\binicon.full.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\binicon.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\defragmentationicon32.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\DifficultyLevelIcon.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_ach.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_browser.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_calendar.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_firewall.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_gamemode_Relax.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_mail.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico32_mediaplayer.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico_challenge.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico_mymenu.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico_post.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\ico_settings.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\pauseicon.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\soundicon.off.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\soundicon.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\starticon_1.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\starticon_2.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\starticon_3.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\starticon_4.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\starticon_5.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Icons\starticon_6.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Images\grid.png" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Sounds\intro_cos95plus.mp3" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Sounds\outro_cos95plus.mp3" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\chicagoflf.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\marlett.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\opensans.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progresspixel.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\selawk.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\BeginIcon.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\binicon.full.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\binicon.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\defragmentationicon32.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\ico32_ach.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\ico32_browser.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\ico32_calendar.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\ico32_mediaplayer.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\ico_mymenu.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\ico_settings.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\pauseicon.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\soundicon.off.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\soundicon.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\starticon_1.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\starticon_2.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\starticon_3.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\starticon_4.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\starticon_5.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Icons\starticon_6.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Images\grid.png" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />
+    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\BarNewRomanPix.ttf" />
+    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\BarNewRomanPixBold.ttf" />
+    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\DOSFont.ttf" />
+    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\DOSFont.ttf" />
+    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progoth.ttf" />
+    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progresspixel-bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="NativeMethods.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GameSettings.xaml">
+    <Page Update="GameIntro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="BIOS_Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

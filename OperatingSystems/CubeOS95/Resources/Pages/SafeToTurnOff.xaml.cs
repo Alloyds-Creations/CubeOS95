@@ -37,6 +37,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95.Resources.Pages
         {
             base.OnNavigatedFrom(e);
             SafeToTurnOffPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/fanshutdown.mp3"));
+            SafeToTurnOffPlay.Volume = 0.1;
             SafeToTurnOffPlay.Play();
         }
     }

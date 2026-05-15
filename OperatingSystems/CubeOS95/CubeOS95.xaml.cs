@@ -36,8 +36,8 @@ namespace CubeOS95.OperatingSystems.CubeOS95
         MediaPlayer introPlay = new MediaPlayer();
         MediaPlayer outroPlay = new MediaPlayer();
         MediaPlayer clickPlay = new MediaPlayer();
-        private CanvasBitmap backgroundImage;
-        private CanvasImageBrush backgroundBrush;
+        private CanvasBitmap? backgroundImage;
+        private CanvasImageBrush? backgroundBrush;
         public CubeOS95()
         {
             this.InitializeComponent();
@@ -200,7 +200,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95
             clickPlay.Volume = 0.1;
             clickPlay.Play();
         }
-        private void SystemDOS_Click(object sender, RoutedEventArgs e)
+        private void CubeDOS_Click(object sender, RoutedEventArgs e)
         {
             clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
             clickPlay.Volume = 0.1;

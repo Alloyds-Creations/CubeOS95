@@ -25,17 +25,21 @@ namespace CubeOS95
         {
             this.InitializeComponent();
         }
-        private void StartSystem95OS_Click(object sender, RoutedEventArgs e)
+        private void StartCubeOS95_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(StartingCubeOS95), null, new SuppressNavigationTransitionInfo());
         }
-        private void StartSystem95PlusOS_Click(object sender, RoutedEventArgs e)
+        private void StartCubeOS95Plus_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(StartingCubeOS95Plus), null, new SuppressNavigationTransitionInfo());
         }
         private void GameSettings_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(GameSettings), null, new SuppressNavigationTransitionInfo());
+            this.Frame.Navigate(typeof(BIOS_Settings), null, new SuppressNavigationTransitionInfo());
+        }
+        private void ViewIntro_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GameIntro), null, new SuppressNavigationTransitionInfo());
         }
     }
 }

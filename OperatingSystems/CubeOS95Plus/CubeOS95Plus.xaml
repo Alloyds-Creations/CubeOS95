@@ -541,73 +541,73 @@
                         </RadioButtons>
                     </StackPanel>
                     <Button x:Name="OKButton" Click="OKButton_Click" IsTabStop="False" UseSystemFocusVisuals="False" Width="140" Height="33" Margin="11,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                            <Button.Resources>
-                                <ResourceDictionary>
-                                    <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
-                                    <SolidColorBrush x:Key="ButtonBackground" Color="#C0C0C0"/>
-                                    <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent"/>
-                                    <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent"/>
-                                    <SolidColorBrush x:Key="ButtonForeground" Color="Black"/>
-                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#C0C0C0"/>
-                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
-                                    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#C0C0C0"/>
-                                    <SolidColorBrush x:Key="ButtonForegroundPressed" Color="Black"/>
-                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
-                                    <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent"/>
-                                </ResourceDictionary>
-                            </Button.Resources>
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
+                                <SolidColorBrush x:Key="ButtonBackground" Color="#C0C0C0"/>
+                                <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent"/>
+                                <SolidColorBrush x:Key="ButtonForeground" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#C0C0C0"/>
+                                <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#C0C0C0"/>
+                                <SolidColorBrush x:Key="ButtonForegroundPressed" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent"/>
+                            </ResourceDictionary>
+                        </Button.Resources>
                         <TextBlock FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Text="OK" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
-                                                    <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
-                                                        <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
-                                                            <ContentPresenter/>
-                                                        </Border>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                                                <Border x:Name="BorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black">
+                                                    <Border x:Name="BorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White">
+                                                        <ContentPresenter/>
                                                     </Border>
-                                                    <VisualStateManager.VisualStateGroups>
-                                                        <VisualStateGroup x:Name="CommonStates">
-                                                            <VisualState x:Name="Normal">
-                                                                <Storyboard>
-                                                                    <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                                </Storyboard>
-                                                            </VisualState>
-                                                            <VisualState x:Name="PointerOver">
-                                                                <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
+                                                </Border>
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup x:Name="CommonStates">
+                                                        <VisualState x:Name="Normal">
+                                                            <Storyboard>
+                                                                <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="PointerOver">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                </Storyboard>
-                                                            </VisualState>
-                                                            <VisualState x:Name="Pressed">
-                                                                <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Pressed">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom"
                                              Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                </Storyboard>
-                                                            </VisualState>
-                                                        </VisualStateGroup>
-                                                    </VisualStateManager.VisualStateGroups>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </Button.Style>
-                        </Button>
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                     <Button x:Name="CloseButton" IsTabStop="False" UseSystemFocusVisuals="False" Click="CloseButton_Click" Width="140" Height="33" Margin="0,0,10,15" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                         <Button.Resources>
                             <ResourceDictionary>
@@ -772,7 +772,7 @@
                     <Grid x:Name="MyMenuWindowTitleBar" Background="#5C2882" Height="29" Width="404" Margin="0,1,2,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/ico_mymenu.png" Height="24" Width="24" VerticalAlignment="Center"/>
-                            <TextBlock Text="My menu" HorizontalAlignment="Left" FontWeight="Black" Margin="3,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/System95/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+                            <TextBlock Text="My menu" HorizontalAlignment="Left" FontWeight="Black" Margin="3,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                         </StackPanel>
                         <Button x:Name="CloseMyMenuWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Click="CloseMyMenuWindow_Click">
                             <Button.Resources>
@@ -1910,7 +1910,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <RotateTransform Angle="-90"/>
                 </Grid.RenderTransform>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="System" VerticalAlignment="Center" FontWeight="Bold" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="8,0,0,0" FontSize="22"/>
+                    <TextBlock Text="CubeOS" VerticalAlignment="Center" FontWeight="Bold" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="8,0,0,0" FontSize="22"/>
                     <TextBlock Text="95" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="4,0,0,0" FontSize="22"/>
                     <TextBlock Text="P" VerticalAlignment="Center" FontWeight="Bold" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Foreground="#DE841B" Margin="6,0,0,0" FontSize="22"/>
                     <TextBlock Text="l" VerticalAlignment="Center" FontWeight="Bold" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Foreground="#D51920" Margin="0,0,0,0" FontSize="22"/>
@@ -1937,7 +1937,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_1.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Load save..." FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Load save..." FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPixBold.ttf#BarNewRomanPixBold" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2021,7 +2021,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_2.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="New game" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="New game" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2105,7 +2105,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_3.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Settings" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Settings" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2171,7 +2171,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="SystemDOS" CornerRadius="0" Click="SystemDOS_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="CubeDOS" CornerRadius="0" Click="CubeDOS_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2189,7 +2189,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_4.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="SystemDOS" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="SystemDOS" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2273,7 +2273,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_5.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Help" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Help" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2357,7 +2357,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_6.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Shutdown" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/chicagoflf.ttf#ChicagoFLF" VerticalAlignment="Center"/>
+                        <TextBlock Text="Shutdown" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2517,7 +2517,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </ToggleButton.Style>
                     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/BeginIcon.png" Height="23" Width="20" Margin="4,0,0,0"/>
-                        <TextBlock Text="Begin" FontWeight="Black" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" FontFamily="/Assets/Fonts/chicagoflf.ttf#ChicagoFLF" FontSize="16" Foreground="Black"/>
+                        <TextBlock Text="Begin" FontWeight="Black" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPixBold.ttf#BarNewRomanPixBold" FontSize="14" Foreground="Black"/>
                     </StackPanel>
                 </ToggleButton>
             </StackPanel>
@@ -2576,7 +2576,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Horizontal">
                         <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw"/>
                         <Image x:Name="DifficultyLevelIcon" Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/DifficultyLevelIcon.png" Height="20" Width="32" Margin="4,0,0,0"/>
-                        <TextBlock x:Name="DifficultyLevelName" Text="" FontWeight="Black" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" FontFamily="/Assets/Fonts/chicagoflf.ttf#ChicagoFLF" FontSize="16" Foreground="Black"/>
+                        <TextBlock x:Name="DifficultyLevelName" Text="" FontWeight="Black" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" FontSize="16" Foreground="Black"/>
                     </StackPanel>
                 </Button>
             </StackPanel>

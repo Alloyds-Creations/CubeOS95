@@ -9,7 +9,7 @@
     x:Name="BootPage"
     mc:Ignorable="d"
     Loaded="BootPage_Loaded">
-    
+
     <Grid x:Name="RootGrid" Background="#3B72C2">
         <Grid.Resources>
             <Storyboard x:Key="FadeStoryboard">
@@ -18,13 +18,13 @@
             </Storyboard>
         </Grid.Resources>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="CubeOS" FontSize="60" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel"/>
-            <TextBlock Text="95" FontSize="60" FontWeight="Bold" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" Margin="6,0,0,0"/>
-            <TextBlock Text="+" HorizontalAlignment="Right" Margin="16,0,0,0" FontWeight="Black" FontSize="60" Foreground="#FFE600" FontFamily="/OperatingSystems/System95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
-            <TextBlock Text="P" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#F7931E" FontFamily="/OperatingSystems/System95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
-            <TextBlock Text="L" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#C1272D" FontFamily="/OperatingSystems/System95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
-            <TextBlock Text="U" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#29ABE2" FontFamily="/OperatingSystems/System95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
-            <TextBlock Text="S" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#8CC63F" FontFamily="/OperatingSystems/System95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="CubeOS" FontSize="60" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="95" FontSize="60" FontWeight="Bold" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="6,0,0,0"/>
+            <TextBlock Text="+" HorizontalAlignment="Right" Margin="16,0,0,0" FontWeight="Black" FontSize="60" Foreground="#FFE600" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="P" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#F7931E" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="L" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#C1272D" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="U" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#29ABE2" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            <TextBlock Text="S" HorizontalAlignment="Right" FontWeight="Black" FontSize="60" Foreground="#8CC63F" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
         </StackPanel>
     </Grid>
 </Page>
