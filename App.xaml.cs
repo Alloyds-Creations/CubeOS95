@@ -46,6 +46,6 @@ namespace CubeOS95
             m_window.Activate();
         }
 
-        public static Window m_window;
+        public static WindowEx? m_window;
     }
 }
