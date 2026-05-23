@@ -1,3 +1,9 @@
+using CubeOS95.OperatingSystems.CubeOS95.Resources.Pages;
+using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Brushes;
+using Microsoft.Graphics.Canvas.UI;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using Microsoft.UI.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -11,22 +17,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using CubeOS95.OperatingSystems.CubeOS95.Resources.Pages;
-using System.Threading.Tasks;
-using Microsoft.Graphics.Canvas.Brushes;
-using Microsoft.Graphics.Canvas.UI.Xaml;
-using Microsoft.Graphics.Canvas.UI;
-using Microsoft.Graphics.Canvas;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.UI.Core;
-using Microsoft.UI.Input;
-using System.Reflection;
-using Windows.ApplicationModel.DataTransfer;
 
 namespace CubeOS95.OperatingSystems.CubeOS95
 {
@@ -161,7 +161,7 @@ namespace CubeOS95.OperatingSystems.CubeOS95
             clickPlay.Volume = 0.1;
             clickPlay.Play();
         }
-        private void CubeNet_Click(object sender, RoutedEventArgs e)
+        private void Cubenet_Click(object sender, RoutedEventArgs e)
         {
             clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
             clickPlay.Volume = 0.1;

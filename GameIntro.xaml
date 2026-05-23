@@ -30,7 +30,7 @@
                 Duration="0:0:1.3" />
                 </Storyboard>
             </StackPanel.Resources>
-            <TextBlock Text="Alloyd's Creations" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" FontSize="30"/>
+            <TextBlock Text="Alloyd's Creations" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="DevelopedInGrid" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel.Resources>
@@ -50,8 +50,8 @@
                 Duration="0:0:1.3" />
                 </Storyboard>
             </StackPanel.Resources>
-            <TextBlock Text="Made in:" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="30"/>
-            <TextBlock Text="Windows App SDK (Visual Studio 2026)" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" FontSize="30"/>
+            <TextBlock Text="Made in:" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="30"/>
+            <TextBlock Text="Windows App SDK (Visual Studio 2026)" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="DisclaimerGrid" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel.Resources>
@@ -71,15 +71,15 @@
                 Duration="0:0:1" />
                 </Storyboard>
             </StackPanel.Resources>
-            <TextBlock Text="All the characters and operating" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="systems depicted are fictitious." FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="Any resemblance to a character," FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="operating system living or dead" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="is purely coincidental" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="Also, this game is a remake of" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20" Margin="0,10,0,0"/>
-            <TextBlock Text="the original Progressbar95. All" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="assets used in this game belong" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="to icoeye" FontFamily="/Assets/Fonts/progresspixel.ttf#progresspixel" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="All the characters and operating" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="systems depicted are fictitious." FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="Any resemblance to a character," FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="operating system living or dead" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="is purely coincidental" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="Also, this game is a remake of" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20" Margin="0,10,0,0"/>
+            <TextBlock Text="the original Progressbar95. All" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="assets used in this game belong" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="to icoeye" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Page>

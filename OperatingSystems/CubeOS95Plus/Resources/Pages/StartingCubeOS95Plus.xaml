@@ -9,6 +9,6 @@
     Loaded="Page_Loaded">
 
     <Grid>
-        <TextBlock Text="Starting CubeOS 95 Plus" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" Margin="405,252,0,0"/>
+        <TextBlock Text="Starting CubeOS 95 Plus" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" Margin="405,252,0,0"/>
     </Grid>
 </Page>
