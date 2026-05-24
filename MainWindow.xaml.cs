@@ -16,10 +16,8 @@ namespace CubeOS95
         {
             InitializeComponent();
             ExtendsContentIntoTitleBar = true;
-            this.CenterOnScreen();
             AppWindow.SetIcon("Assets/icon.ico");
             SetTitleBar(AppTitleBar);
-            AppWindow.Resize(new SizeInt32(1382, 809));
 
             GameFrame.Navigate(typeof(GameIntro), null, new SuppressNavigationTransitionInfo());
 
@@ -33,17 +31,6 @@ namespace CubeOS95
                     e.Handled = true;
                 }
             };
-
-            var appWindow = AppWindow;
-            if (appWindow != null)
-            {
-                var presenter = appWindow.Presenter as OverlappedPresenter;
-                if (presenter != null)
-                {
-                    presenter.IsResizable = false;
-                    presenter.IsMaximizable = false;
-                }
-            }
         }
     }
 }

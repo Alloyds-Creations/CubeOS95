@@ -7,6 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winex="using:WinUIEx"
     mc:Ignorable="d"
+    Height="805" Width="1382"
+    IsMaximizable="False"
+    IsResizable="False"
     Title="CubeOS 95">
 
     <winex:WindowEx.SystemBackdrop>

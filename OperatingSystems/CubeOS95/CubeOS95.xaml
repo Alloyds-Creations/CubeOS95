@@ -127,18 +127,7 @@
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -459,18 +448,7 @@
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
-                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -727,37 +705,8 @@
                                                                     <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
-                                                            <VisualState x:Name="PointerOver">
-                                                                <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                </Storyboard>
-                                                            </VisualState>
-                                                            <VisualState x:Name="Pressed">
-                                                                <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                </Storyboard>
+                                                            <VisualState x:Name="Disabled">
+
                                                             </VisualState>
                                                         </VisualStateGroup>
                                                     </VisualStateManager.VisualStateGroups>
@@ -906,18 +855,7 @@
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
-                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -1535,18 +1473,7 @@
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
-                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -2386,7 +2313,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Load save..." />
+                            Text="Load save..." FontSize="15"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2410,19 +2337,6 @@
                                                     <VisualState x:Name="Normal">
                                                         <Storyboard>
                                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="PointerOver">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBackgroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBorderBrushPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
                                                     <VisualState x:Name="Pressed">
@@ -2483,7 +2397,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="New game" />
+                            Text="New game" FontSize="15"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2507,19 +2421,6 @@
                                                     <VisualState x:Name="Normal">
                                                         <Storyboard>
                                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="PointerOver">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBackgroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBorderBrushPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
                                                     <VisualState x:Name="Pressed">
@@ -2580,7 +2481,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Settings" />
+                            Text="Settings" FontSize="15"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2604,19 +2505,6 @@
                                                     <VisualState x:Name="Normal">
                                                         <Storyboard>
                                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="PointerOver">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBackgroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBorderBrushPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
                                                     <VisualState x:Name="Pressed">
@@ -2677,7 +2565,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="CubeDOS" />
+                            Text="CubeDOS" FontSize="15"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2701,19 +2589,6 @@
                                                     <VisualState x:Name="Normal">
                                                         <Storyboard>
                                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="PointerOver">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBackgroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBorderBrushPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
                                                     <VisualState x:Name="Pressed">
@@ -2774,7 +2649,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Help" />
+                            Text="Help" FontSize="15"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2798,19 +2673,6 @@
                                                     <VisualState x:Name="Normal">
                                                         <Storyboard>
                                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="PointerOver">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBackgroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBorderBrushPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
                                                     <VisualState x:Name="Pressed">
@@ -2871,7 +2733,7 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Shutdown" />
+                            Text="Shutdown" FontSize="15"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2895,19 +2757,6 @@
                                                     <VisualState x:Name="Normal">
                                                         <Storyboard>
                                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="PointerOver">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBackgroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonBorderBrushPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonForegroundPointerOver}" />
-                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
                                                     <VisualState x:Name="Pressed">
@@ -3006,22 +2855,6 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
                                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState x:Name="Pressed">
-                                                        <Storyboard>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
-                                                            </ObjectAnimationUsingKeyFrames>
-                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
-                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
