@@ -185,13 +185,23 @@
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                                                     <Border
                                                         x:Name="BorderRightAndBottom"
-                                                        BorderBrush="Black"
+                                                        BorderBrush="#000000"
                                                         BorderThickness="0,0,2,2">
                                                         <Border
                                                             x:Name="BorderLeftAndTop"
-                                                            BorderBrush="White"
+                                                            BorderBrush="#ffffff"
                                                             BorderThickness="2,2,0,0">
-                                                            <ContentPresenter />
+                                                            <Border
+                                                                x:Name="BorderRightAndBottom2"
+                                                                BorderBrush="#808080"
+                                                                BorderThickness="0,0,2,2">
+                                                                <Border
+                                                                    x:Name="BorderLeftAndTop2"
+                                                                    BorderBrush="#dfdfdf"
+                                                                    BorderThickness="2,2,0,0">
+                                                                    <ContentPresenter />
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -204,21 +214,22 @@
                                                             <VisualState x:Name="PointerOver">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
-                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -269,13 +280,23 @@
                                                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                                                     <Border
                                                         x:Name="BorderRightAndBottom"
-                                                        BorderBrush="Black"
+                                                        BorderBrush="#000000"
                                                         BorderThickness="0,0,2,2">
                                                         <Border
                                                             x:Name="BorderLeftAndTop"
-                                                            BorderBrush="White"
+                                                            BorderBrush="#ffffff"
                                                             BorderThickness="2,2,0,0">
-                                                            <ContentPresenter />
+                                                            <Border
+                                                                x:Name="BorderRightAndBottom2"
+                                                                BorderBrush="#808080"
+                                                                BorderThickness="0,0,2,2">
+                                                                <Border
+                                                                    x:Name="BorderLeftAndTop2"
+                                                                    BorderBrush="#dfdfdf"
+                                                                    BorderThickness="2,2,0,0">
+                                                                    <ContentPresenter />
+                                                                </Border>
+                                                            </Border>
                                                         </Border>
                                                     </Border>
                                                     <VisualStateManager.VisualStateGroups>
@@ -288,21 +309,22 @@
                                                             <VisualState x:Name="PointerOver">
                                                                 <Storyboard>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#ffffff" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                     <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#000000" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop2" Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#dfdfdf" />
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom2" Storyboard.TargetProperty="BorderBrush">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="#808080" />
                                                                     </ObjectAnimationUsingKeyFrames>
                                                                 </Storyboard>
                                                             </VisualState>
                                                             <VisualState x:Name="Pressed">
                                                                 <Storyboard>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderLeftAndTop" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
-                                                                    </ObjectAnimationUsingKeyFrames>
-                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderRightAndBottom" Storyboard.TargetProperty="BorderBrush">
-                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
-                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
                                                         </VisualStateGroup>
@@ -871,7 +893,9 @@
                 </Grid>
                 <RadioButton
                     x:Name="GameLanguageEN"
-                    Content="English"
+                    Content="English" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
+                    VerticalAlignment="Top"
+                    Margin="10,40,0,0"
                     IsChecked="True">
                     <RadioButton.Style>
                         <Style TargetType="RadioButton">
@@ -901,7 +925,6 @@
                                                 <ColumnDefinition Width="20" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-
                                             <Grid Height="32" VerticalAlignment="Top">
                                                 <Ellipse
                                                     x:Name="OuterEllipse"
@@ -945,7 +968,6 @@
                                                     Height="10"
                                                     Opacity="0"
                                                     UseLayoutRounding="False" />
-
                                             </Grid>
                                             <ContentPresenter
                                                 x:Name="ContentPresenter"
@@ -959,7 +981,6 @@
                                                 ContentTransitions="{TemplateBinding ContentTransitions}"
                                                 Foreground="{TemplateBinding Foreground}"
                                                 TextWrapping="Wrap" />
-
                                             <VisualStateManager.VisualStateGroups>
                                                 <VisualStateGroup x:Name="CommonStates">
                                                     <VisualState x:Name="Normal">
@@ -993,9 +1014,7 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
-
                                                     <VisualState x:Name="PointerOver">
-
                                                         <Storyboard>
                                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
@@ -1026,9 +1045,7 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
-
                                                     <VisualState x:Name="Pressed">
-
                                                         <Storyboard>
                                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
@@ -1059,12 +1076,9 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
-
                                                 </VisualStateGroup>
                                                 <VisualStateGroup x:Name="CheckStates">
-
                                                     <VisualState x:Name="Checked">
-
                                                         <Storyboard>
                                                             <DoubleAnimation
                                                                 Storyboard.TargetName="CheckGlyph"
@@ -1091,12 +1105,9 @@
                                                     </VisualState>
                                                     <VisualState x:Name="Unchecked" />
                                                     <VisualState x:Name="Indeterminate" />
-
                                                 </VisualStateGroup>
-
                                             </VisualStateManager.VisualStateGroups>
                                         </Grid>
-
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -1104,8 +1115,11 @@
                     </RadioButton.Style>
                 </RadioButton>
                 <RadioButton
+                    VerticalAlignment="Top"
+                    Margin="10,70,0,0"
                     x:Name="GameLanguageRU"
                     Content="Russian"
+                    FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                     IsChecked="True">
                     <RadioButton.Style>
                         <Style TargetType="RadioButton">
@@ -1135,7 +1149,6 @@
                                                 <ColumnDefinition Width="20" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-
                                             <Grid Height="32" VerticalAlignment="Top">
                                                 <Ellipse
                                                     x:Name="OuterEllipse"
@@ -1179,7 +1192,6 @@
                                                     Height="10"
                                                     Opacity="0"
                                                     UseLayoutRounding="False" />
-
                                             </Grid>
                                             <ContentPresenter
                                                 x:Name="ContentPresenter"
@@ -1193,7 +1205,6 @@
                                                 ContentTransitions="{TemplateBinding ContentTransitions}"
                                                 Foreground="{TemplateBinding Foreground}"
                                                 TextWrapping="Wrap" />
-
                                             <VisualStateManager.VisualStateGroups>
                                                 <VisualStateGroup x:Name="CommonStates">
                                                     <VisualState x:Name="Normal">
@@ -1227,9 +1238,7 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
-
                                                     <VisualState x:Name="PointerOver">
-
                                                         <Storyboard>
                                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
@@ -1260,9 +1269,7 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
-
                                                     <VisualState x:Name="Pressed">
-
                                                         <Storyboard>
                                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
                                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="Black" />
@@ -1293,12 +1300,9 @@
                                                             </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </VisualState>
-
                                                 </VisualStateGroup>
                                                 <VisualStateGroup x:Name="CheckStates">
-
                                                     <VisualState x:Name="Checked">
-
                                                         <Storyboard>
                                                             <DoubleAnimation
                                                                 Storyboard.TargetName="CheckGlyph"
@@ -1325,12 +1329,9 @@
                                                     </VisualState>
                                                     <VisualState x:Name="Unchecked" />
                                                     <VisualState x:Name="Indeterminate" />
-
                                                 </VisualStateGroup>
-
                                             </VisualStateManager.VisualStateGroups>
                                         </Grid>
-
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -1341,7 +1342,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                    FontSize="20"
+                    FontSize="20" Margin="0,10,0,0"
                     Foreground="Black"
                     Text="&quot;Settings&quot; are in development." />
                 <Border
@@ -2292,8 +2293,6 @@
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonForeground" Color="Black" />
                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#000080" />
                             <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
@@ -2376,8 +2375,6 @@
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonForeground" Color="Black" />
                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#000080" />
                             <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
@@ -2460,8 +2457,6 @@
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonForeground" Color="Black" />
                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#000080" />
                             <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
@@ -2544,8 +2539,6 @@
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonForeground" Color="Black" />
                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#000080" />
                             <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
@@ -2628,8 +2621,6 @@
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonForeground" Color="Black" />
                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#000080" />
                             <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
@@ -2712,8 +2703,6 @@
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent" />
-                            <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
                             <SolidColorBrush x:Key="ButtonForeground" Color="Black" />
                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#000080" />
                             <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
