@@ -10,10 +10,10 @@
     Height="805" Width="1382"
     IsMaximizable="False"
     IsResizable="False"
-    Title="CubeOS 95">
+    Title="CubeOS 95 - Alpha 1">
 
     <winex:WindowEx.SystemBackdrop>
-        <MicaBackdrop Kind="BaseAlt"/>
+        <MicaBackdrop Kind="Base"/>
     </winex:WindowEx.SystemBackdrop>
 
     <Grid>

@@ -16,8 +16,8 @@ namespace CubeOS95
         {
             InitializeComponent();
             ExtendsContentIntoTitleBar = true;
-            AppWindow.SetIcon("Assets/icon.ico");
             SetTitleBar(AppTitleBar);
+            AppWindow.SetIcon("Assets/icon.ico");
 
             GameFrame.Navigate(typeof(GameIntro), null, new SuppressNavigationTransitionInfo());
 
