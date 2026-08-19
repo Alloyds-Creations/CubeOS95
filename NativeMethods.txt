@@ -1,2 +1,0 @@
-DwmExtendFrameIntoClientArea
-SetWindowPos

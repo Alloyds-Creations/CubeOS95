@@ -2,7 +2,6 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>CubeOS95</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x86;x64;arm64</Platforms>
@@ -17,9 +16,9 @@
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 	<Nullable>enable</Nullable>
 	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-	<AssemblyVersion>0.1.0</AssemblyVersion>
-	<FileVersion>0.1.0</FileVersion>
-	<SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+	<AssemblyVersion>0.2.0</AssemblyVersion>
+	<FileVersion>0.2.0</FileVersion>
+	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -101,10 +100,6 @@
     <PackageReference Include="CommunityToolkit.WinUI.Animations" Version="8.2.251219" />
     <PackageReference Include="CommunityToolkit.WinUI.Extensions" Version="8.2.251219" />
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.4.0" />
-    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.321">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.4.0" />
@@ -187,9 +182,6 @@
     <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\DOSFont.ttf" />
     <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progoth.ttf" />
     <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progresspixel-bold.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="NativeMethods.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
