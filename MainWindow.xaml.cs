@@ -1,23 +1,37 @@
-﻿using Microsoft.UI.Xaml.Media.Animation;
-using WinUIEx;
-using WinUIEx.Messaging;
-using Windows.Graphics;
+﻿using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
-using System.Runtime.CompilerServices;
-using Windows.Win32;
+using Microsoft.UI.Xaml.Media.Animation;
+using System;
+using Windows.Graphics;
+using WinRT.Interop;
+using WinUIEx;
+using WinUIEx.Messaging;
 
 namespace CubeOS95
 {
     public sealed partial class MainWindow : WindowEx
     {
         private WindowMessageMonitor _msgMonitor;
-        public MainWindow()
+        public MainWindow(int MinWidth, int MinHeight, int MaxWidth, int MaxHeight)
         {
             InitializeComponent();
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
             AppWindow.SetIcon("Assets/icon.ico");
+            AppWindow.Resize(new SizeInt32(1382, 805));
+
+            OverlappedPresenter presenter = OverlappedPresenter.Create();
+
+            presenter.IsResizable = false;
+            presenter.IsMaximizable = false;
+
+            AppWindow.SetPresenter(presenter);
+
+            presenter.PreferredMinimumWidth = MinWidth;
+            presenter.PreferredMinimumHeight = MinHeight;
+            presenter.PreferredMaximumWidth = MaxWidth;
+            presenter.PreferredMaximumHeight = MaxHeight;
 
             GameFrame.Navigate(typeof(GameIntro), null, new SuppressNavigationTransitionInfo());
 
@@ -31,6 +45,14 @@ namespace CubeOS95
                     e.Handled = true;
                 }
             };
+
+            CenterWindow();
+        }
+        private void CenterWindow()
+        {
+            var area = DisplayArea.GetFromWindowId(AppWindow.Id, DisplayAreaFallback.Nearest)?.WorkArea;
+            if (area == null) return;
+            AppWindow.Move(new PointInt32((area.Value.Width - AppWindow.Size.Width) / 2, (area.Value.Height - AppWindow.Size.Height) / 2));
         }
     }
 }

@@ -10,7 +10,7 @@
   <Identity
     Name="CubeOS95"
     Publisher="CN=Alloyd"
-    Version="0.1.0.0" />
+    Version="0.2.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="5e246178-8763-4666-8739-899b2cdb6899" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -34,8 +34,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="CubeOS 95"
-        Description="CubeOS 95"
+        DisplayName="CubeOS 95 v0.2 Alpha"
+        Description="CubeOS 95 v0.2 Alpha"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">

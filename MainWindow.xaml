@@ -2,26 +2,32 @@
     x:Class="CubeOS95.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CubeOS95"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:CubeOS95"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winex="using:WinUIEx"
-    mc:Ignorable="d"
-    Height="805" Width="1382"
-    IsMaximizable="False"
-    IsResizable="False"
-    Title="CubeOS 95 - Alpha 1">
+    Title="CubeOS 95 v0.2 Alpha"
+    mc:Ignorable="d">
 
     <winex:WindowEx.SystemBackdrop>
-        <MicaBackdrop Kind="Base"/>
+        <MicaBackdrop Kind="Base" />
     </winex:WindowEx.SystemBackdrop>
 
     <Grid>
-        <TitleBar x:Name="AppTitleBar" Title="CubeOS 95" Subtitle="Alpha 1" Height="32" VerticalAlignment="Top">
+        <TitleBar
+            x:Name="AppTitleBar"
+            Title="CubeOS 95"
+            Height="32"
+            VerticalAlignment="Top"
+            Subtitle="v0.2 Alpha">
             <TitleBar.IconSource>
-                <ImageIconSource ImageSource="/Assets/StoreLogo.png"/>
+                <ImageIconSource ImageSource="/Assets/StoreLogo.png" />
             </TitleBar.IconSource>
         </TitleBar>
-        <Frame x:Name="GameFrame" RequestedTheme="Dark" Background="Black" Margin="0,32,0,0"/>
+        <Frame
+            x:Name="GameFrame"
+            Margin="0,32,0,0"
+            Background="Black"
+            RequestedTheme="Dark" />
     </Grid>
 </winex:WindowEx>

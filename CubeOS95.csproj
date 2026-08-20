@@ -13,11 +13,16 @@
     <SelfContained>true</SelfContained>
 	<WindowsPackageType>None</WindowsPackageType>
 	<PublishAot>true</PublishAot>
+	<AssemblyName>CubeOS 95</AssemblyName>
+	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
+	<Product>CubeOS 95</Product>
+	<Description>A Progressbar95 remake in C# and WinUI 3.</Description>
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 	<Nullable>enable</Nullable>
 	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-	<AssemblyVersion>0.2.0</AssemblyVersion>
-	<FileVersion>0.2.0</FileVersion>
+	<Version>0.2.0.0</Version>
+	<AssemblyVersion>0.2.0.0</AssemblyVersion>
+	<FileVersion>0.2.0.0</FileVersion>
 	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -174,14 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Strings\tr-TR\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\BarNewRomanPix.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\BarNewRomanPixBold.ttf" />
-    <None Remove="OperatingSystems\CubeOS95Plus\Resources\Fonts\DOSFont.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\DOSFont.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progoth.ttf" />
-    <None Remove="OperatingSystems\CubeOS95\Resources\Fonts\progresspixel-bold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
