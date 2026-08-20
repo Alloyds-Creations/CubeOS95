@@ -6,20 +6,19 @@
     xmlns:local="using:CubeOS95"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winex="using:WinUIEx"
-    Title="CubeOS 95 v0.2 Alpha"
+    Title="CubeOS 95 - v0.2 Alpha"
     mc:Ignorable="d">
 
     <winex:WindowEx.SystemBackdrop>
-        <MicaBackdrop Kind="Base" />
+        <MicaBackdrop Kind="BaseAlt" />
     </winex:WindowEx.SystemBackdrop>
 
     <Grid>
         <TitleBar
             x:Name="AppTitleBar"
-            Title="CubeOS 95"
+            Title="CubeOS 95 - v0.2 Alpha"
             Height="32"
-            VerticalAlignment="Top"
-            Subtitle="v0.2 Alpha">
+            VerticalAlignment="Top">
             <TitleBar.IconSource>
                 <ImageIconSource ImageSource="/Assets/StoreLogo.png" />
             </TitleBar.IconSource>
