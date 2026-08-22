@@ -44,7 +44,7 @@ namespace CubeOS95
             GameSettingsData settings = GameSettings.Load();
             await localizer.SetLanguage(settings.Language);
 
-            m_window = new MainWindow(1382, 805, 1382, 805);
+            m_window = new MainWindow(1382, 805, 0, 0);
             m_window.Activate();
             MainWindow.UpdateTitle();
         }

@@ -14,7 +14,6 @@ namespace CubeOS95
 {
     public sealed partial class MainWindow : WindowEx
     {
-        private WindowMessageMonitor _msgMonitor;
         public MainWindow(int MinWidth, int MinHeight, int MaxWidth, int MaxHeight)
         {
             InitializeComponent();
@@ -26,7 +25,6 @@ namespace CubeOS95
             OverlappedPresenter presenter = OverlappedPresenter.Create();
 
             presenter.IsResizable = false;
-            presenter.IsMaximizable = false;
 
             AppWindow.SetPresenter(presenter);
 
@@ -36,17 +34,6 @@ namespace CubeOS95
             presenter.PreferredMaximumHeight = MaxHeight;
 
             GameFrame.Navigate(typeof(GameIntro), null, new SuppressNavigationTransitionInfo());
-
-            _msgMonitor = new WindowMessageMonitor(this);
-            _msgMonitor.WindowMessageReceived += (_, e) =>
-            {
-                const int WM_NCLBUTTONDBLCLK = 0x00A3;
-                if (e.Message.MessageId == WM_NCLBUTTONDBLCLK)
-                {
-                    e.Result = 0;
-                    e.Handled = true;
-                }
-            };
 
             CenterWindow();
         }
