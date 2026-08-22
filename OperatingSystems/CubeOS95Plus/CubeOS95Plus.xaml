@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CubeOS95.OperatingSystems.CubeOS95Plus"
+    xmlns:l="using:WinUI3Localizer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:win2d="using:Microsoft.Graphics.Canvas.UI.Xaml"
@@ -2105,7 +2106,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_3.png" VerticalAlignment="Center" Margin="-16,-4,0,-4" Height="48" Width="48"/>
-                        <TextBlock Text="Settings" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
+                        <TextBlock l:Uids.Uid="SettingsMenuString" Text="Settings" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/BarNewRomanPix.ttf#BarNewRomanPix" VerticalAlignment="Center"/>
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">

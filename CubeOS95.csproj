@@ -9,22 +9,30 @@
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
     <UseWPF>False</UseWPF>
-	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SelfContained>true</SelfContained>
-	<WindowsPackageType>None</WindowsPackageType>
-	<PublishAot>true</PublishAot>
-	<AssemblyName>CubeOS 95</AssemblyName>
-	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
-	<Product>CubeOS 95</Product>
-	<Description>A Progressbar95 remake in C# and WinUI 3.</Description>
-	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
-	<Nullable>enable</Nullable>
-	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-	<Version>0.2.0.0</Version>
-	<AssemblyVersion>0.2.0.0</AssemblyVersion>
-	<FileVersion>0.2.0.0</FileVersion>
-	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+  	<WindowsPackageType>None</WindowsPackageType>
+	  <PublishAot>true</PublishAot>
+    <PublishSingleFile>true</PublishSingleFile>
+	  <AssemblyName>CubeOS 95</AssemblyName>
+	  <Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
+	  <Product>CubeOS 95</Product>
+	  <Description>A Progressbar95 remake in C# and WinUI 3.</Description>
+	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+  	<Nullable>enable</Nullable>
+	  <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+  	<Version>0.2.0.0</Version>
+	  <AssemblyVersion>0.2.0.0</AssemblyVersion>
+	  <FileVersion>0.2.0.0</FileVersion>
+	  <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="Strings\**\*.resw">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -108,6 +116,7 @@
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.4.0" />
+    <PackageReference Include="WinUI3Localizer" Version="2.3.0" />
     <PackageReference Include="WinUIEx" Version="2.9.3" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
@@ -162,24 +171,6 @@
   <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm64'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-  <ItemGroup>
-    <PRIResource Remove="OperatingSystems\System95Plus\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Remove="OperatingSystems\System95\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Strings\tr-TR\Resources.resw" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />

@@ -27,6 +27,7 @@ using Windows.Foundation.Collections;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.UI.Core;
+using WinUI3Localizer;
 
 namespace CubeOS95.OperatingSystems.CubeOS95
 {
@@ -129,9 +130,30 @@ namespace CubeOS95.OperatingSystems.CubeOS95
             outroPlay.Volume = 0.1;
             outroPlay.Play();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            if (Localizer.Get() is ILocalizer localizer)
+            {
+                await localizer.SetLanguage(GameSettings.CurrentLanguage);
+            }
+            MainWindow.UpdateTitle();
+
+            GameLanguageEN.Checked -= GameLanguageEN_Checked;
+            GameLanguageRU.Checked -= GameLanguageRU_Checked;
+
+            if (GameSettings.CurrentLanguage == "ru-RU")
+            {
+                GameLanguageRU.IsChecked = true;
+            }
+            else
+            {
+                GameLanguageEN.IsChecked = true;
+            }
+
+            GameLanguageEN.Checked += GameLanguageEN_Checked;
+            GameLanguageRU.Checked += GameLanguageRU_Checked;
+
             introPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95/Resources/Sounds/intro_cos95.mp3"));
             introPlay.Volume = 0.1;
             introPlay.Play();
@@ -220,6 +242,30 @@ namespace CubeOS95.OperatingSystems.CubeOS95
         }
         private void GameLanguage_Click(object sender, RoutedEventArgs e)
         {
+            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
+            clickPlay.Volume = 0.1;
+            clickPlay.Play();
+        }
+        private async void GameLanguageEN_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Localizer.Get() is ILocalizer localizer)
+            {
+                await localizer.SetLanguage("en-US");
+                GameSettings.Save(new GameSettingsData { Language = "en-US" });
+            }
+            MainWindow.UpdateTitle();
+            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
+            clickPlay.Volume = 0.1;
+            clickPlay.Play();
+        }
+        private async void GameLanguageRU_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Localizer.Get() is ILocalizer localizer)
+            {
+                await localizer.SetLanguage("ru-RU");
+                GameSettings.Save(new GameSettingsData { Language = "ru-RU" });
+            }
+            MainWindow.UpdateTitle();
             clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
             clickPlay.Volume = 0.1;
             clickPlay.Play();

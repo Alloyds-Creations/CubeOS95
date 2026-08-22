@@ -15,6 +15,7 @@ using Microsoft.Graphics.Canvas;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using Microsoft.UI.Input;
+using WinUI3Localizer;
 
 namespace CubeOS95.OperatingSystems.CubeOS95Plus
 {
@@ -122,9 +123,14 @@ namespace CubeOS95.OperatingSystems.CubeOS95Plus
             outroPlay.Volume = 0.1;
             outroPlay.Play();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            if (Localizer.Get() is ILocalizer localizer)
+            {
+                await localizer.SetLanguage(GameSettings.CurrentLanguage);
+            }
+            MainWindow.UpdateTitle();
             introPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95Plus/Resources/Sounds/intro_cos95plus.mp3"));
             introPlay.Volume = 0.1;
             introPlay.Play();

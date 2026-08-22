@@ -16,6 +16,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using CubeOS95.OperatingSystems.CubeOS95.Resources.Pages;
 using CubeOS95.OperatingSystems.CubeOS95Plus.Resources.Pages;
+using WinUI3Localizer;
 
 namespace CubeOS95
 {
@@ -24,6 +25,14 @@ namespace CubeOS95
         public OSSelect()
         {
             this.InitializeComponent();
+        }
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (Localizer.Get() is ILocalizer localizer)
+            {
+                await localizer.SetLanguage(GameSettings.CurrentLanguage);
+            }
         }
         private void StartCubeOS95_Click(object sender, RoutedEventArgs e)
         {

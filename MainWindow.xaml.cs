@@ -3,10 +3,12 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media.Animation;
 using System;
+using System.Reflection;
 using Windows.Graphics;
 using WinRT.Interop;
 using WinUIEx;
 using WinUIEx.Messaging;
+using WinUI3Localizer;
 
 namespace CubeOS95
 {
@@ -53,6 +55,24 @@ namespace CubeOS95
             var area = DisplayArea.GetFromWindowId(AppWindow.Id, DisplayAreaFallback.Nearest)?.WorkArea;
             if (area == null) return;
             AppWindow.Move(new PointInt32((area.Value.Width - AppWindow.Size.Width) / 2, (area.Value.Height - AppWindow.Size.Height) / 2));
+        }
+        public static void UpdateTitle()
+        {
+            if (App.m_window is MainWindow mainWindow)
+            {
+                string version = Assembly.GetEntryAssembly()?.GetName().Version?.ToString(2) ?? "0.0";
+                string title = mainWindow.AppTitleBar.Title;
+                if (!string.IsNullOrEmpty(title))
+                {
+                    title = System.Text.RegularExpressions.Regex.Replace(title, @"\d+\.\d+", version);
+                }
+                else
+                {
+                    title = $"CubeOS 95 - Version {version} Alpha";
+                }
+                mainWindow.Title = title;
+                mainWindow.AppTitleBar.Title = title;
+            }
         }
     }
 }

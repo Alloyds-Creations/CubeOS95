@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:CubeOS95.OperatingSystems.CubeOS95"
+    xmlns:l="using:WinUI3Localizer"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:win2d="using:Microsoft.Graphics.Canvas.UI.Xaml"
     Background="Transparent"
@@ -727,9 +728,7 @@
                                                                     <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
                                                                 </Storyboard>
                                                             </VisualState>
-                                                            <VisualState x:Name="Disabled">
-
-                                                            </VisualState>
+                                                            <VisualState x:Name="Disabled" />
                                                         </VisualStateGroup>
                                                     </VisualStateManager.VisualStateGroups>
                                                 </Grid>
@@ -789,6 +788,7 @@
                                 VerticalAlignment="Center"
                                 Source="/OperatingSystems/CubeOS95/Resources/Icons/ico_settings.png" />
                             <TextBlock
+                                l:Uids.Uid="SettingsTitleString"
                                 Margin="3,0,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
@@ -893,10 +893,13 @@
                 </Grid>
                 <RadioButton
                     x:Name="GameLanguageEN"
-                    Content="English" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                    VerticalAlignment="Top"
                     Margin="10,40,0,0"
-                    IsChecked="True">
+                    VerticalAlignment="Top"
+                    Checked="GameLanguageEN_Checked"
+                    Content="English"
+                    l:Uids.Uid="GameLanguageEN"
+                    FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
+                    GroupName="GameLanguage">
                     <RadioButton.Style>
                         <Style TargetType="RadioButton">
                             <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
@@ -1115,12 +1118,14 @@
                     </RadioButton.Style>
                 </RadioButton>
                 <RadioButton
-                    VerticalAlignment="Top"
-                    Margin="10,70,0,0"
                     x:Name="GameLanguageRU"
+                    Margin="10,70,0,0"
+                    VerticalAlignment="Top"
+                    Checked="GameLanguageRU_Checked"
                     Content="Russian"
+                    l:Uids.Uid="GameLanguageRU"
                     FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                    IsChecked="True">
+                    GroupName="GameLanguage">
                     <RadioButton.Style>
                         <Style TargetType="RadioButton">
                             <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
@@ -1339,10 +1344,11 @@
                     </RadioButton.Style>
                 </RadioButton>
                 <TextBlock
+                    Margin="0,10,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                    FontSize="20" Margin="0,10,0,0"
+                    FontSize="20"
                     Foreground="Black"
                     Text="&quot;Settings&quot; are in development." />
                 <Border
@@ -2312,7 +2318,8 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Load save..." FontSize="15"/>
+                            FontSize="15"
+                            Text="Load save..." />
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2394,7 +2401,8 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="New game" FontSize="15"/>
+                            FontSize="15"
+                            Text="New game" />
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2474,9 +2482,11 @@
                             VerticalAlignment="Center"
                             Source="/OperatingSystems/CubeOS95/Resources/Icons/starticon_3.png" />
                         <TextBlock
+                            l:Uids.Uid="SettingsMenuString"
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Settings" FontSize="15"/>
+                            FontSize="15"
+                            Text="Settings" />
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2558,7 +2568,8 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="CubeDOS" FontSize="15"/>
+                            FontSize="15"
+                            Text="CubeDOS" />
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2640,7 +2651,8 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Help" FontSize="15"/>
+                            FontSize="15"
+                            Text="Help" />
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2722,7 +2734,8 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                            Text="Shutdown" FontSize="15"/>
+                            FontSize="15"
+                            Text="Shutdown" />
                     </StackPanel>
                     <Button.Style>
                         <Style TargetType="Button">
@@ -2804,21 +2817,21 @@
                                     <ControlTemplate TargetType="ToggleButton">
                                         <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                                             <Border
-                                                        x:Name="BorderRightAndBottom"
-                                                        BorderBrush="#000000"
-                                                        BorderThickness="0,0,2,2">
+                                                x:Name="BorderRightAndBottom"
+                                                BorderBrush="#000000"
+                                                BorderThickness="0,0,2,2">
                                                 <Border
-                                                            x:Name="BorderLeftAndTop"
-                                                            BorderBrush="#ffffff"
-                                                            BorderThickness="2,2,0,0">
+                                                    x:Name="BorderLeftAndTop"
+                                                    BorderBrush="#ffffff"
+                                                    BorderThickness="2,2,0,0">
                                                     <Border
-                                                                x:Name="BorderRightAndBottom2"
-                                                                BorderBrush="#808080"
-                                                                BorderThickness="0,0,2,2">
+                                                        x:Name="BorderRightAndBottom2"
+                                                        BorderBrush="#808080"
+                                                        BorderThickness="0,0,2,2">
                                                         <Border
-                                                                    x:Name="BorderLeftAndTop2"
-                                                                    BorderBrush="#dfdfdf"
-                                                                    BorderThickness="2,2,0,0">
+                                                            x:Name="BorderLeftAndTop2"
+                                                            BorderBrush="#dfdfdf"
+                                                            BorderThickness="2,2,0,0">
                                                             <ContentPresenter />
                                                         </Border>
                                                     </Border>
@@ -2916,7 +2929,7 @@
                             Margin="11,0,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            x:Uid="BeginString"
+                            l:Uids.Uid="BeginString"
                             FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/DOSFont.ttf#DOSFont"
                             FontSize="17"
                             Foreground="Black"

@@ -120,4 +120,34 @@
   <data name="BeginString.Text" xml:space="preserve">
     <value>Запуск</value>
   </data>
+  <data name="GameLanguageEN.Content" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="GameLanguageRU.Content" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="GameSettingsString.Text" xml:space="preserve">
+    <value>Настройки игры</value>
+  </data>
+  <data name="CubeOS95SelectString.Text" xml:space="preserve">
+    <value>1. CubeOS 95</value>
+  </data>
+  <data name="CubeOS95PlusSelectString.Text" xml:space="preserve">
+    <value>2. CubeOS 95 Plus</value>
+  </data>
+  <data name="ViewIntroSelectString.Text" xml:space="preserve">
+    <value>Просмотр интро</value>
+  </data>
+  <data name="SettingsMenuString.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SettingsTitleString.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="MadeWithString.Text" xml:space="preserve">
+    <value>Создано с помощью:</value>
+  </data>
+  <data name="AppTitleBarString.Title" xml:space="preserve">
+    <value>CubeOS 95 - Версия 0.2 Альфа</value>
+  </data>
 </root>

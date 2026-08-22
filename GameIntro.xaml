@@ -1,85 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Page
     x:Class="CubeOS95.GameIntro"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CubeOS95"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:l="using:WinUI3Localizer"
+    xmlns:local="using:CubeOS95"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     Background="Transparent"
+    Loaded="GameIntro_Loaded"
     RequestedTheme="Dark"
-    Loaded="GameIntro_Loaded">
+    mc:Ignorable="d">
 
     <Grid x:Name="RootGrid">
-        <StackPanel x:Name="MadeByGrid" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel
+            x:Name="MadeByGrid"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Opacity="0">
             <StackPanel.Resources>
                 <Storyboard x:Name="MadeByFadeInStoryboard">
                     <DoubleAnimation
-                Storyboard.TargetName="MadeByGrid"
-                Storyboard.TargetProperty="Opacity"
-                From="0.0" To="1.0" 
-                Duration="0:0:1.3" />
+                        Storyboard.TargetName="MadeByGrid"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0"
+                        To="1.0"
+                        Duration="0:0:1.3" />
                 </Storyboard>
 
                 <Storyboard x:Name="MadeByFadeOutStoryboard">
                     <DoubleAnimation
-                Storyboard.TargetName="MadeByGrid"
-                Storyboard.TargetProperty="Opacity"
-                From="1.0" To="0.0" 
-                Duration="0:0:1.3" />
+                        Storyboard.TargetName="MadeByGrid"
+                        Storyboard.TargetProperty="Opacity"
+                        From="1.0"
+                        To="0.0"
+                        Duration="0:0:1.3" />
                 </Storyboard>
             </StackPanel.Resources>
-            <TextBlock Text="Alloyd's Creations" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" FontSize="30"/>
+            <TextBlock
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="30"
+                Text="Alloyd's Creations" />
         </StackPanel>
-        <StackPanel x:Name="DevelopedInGrid" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel
+            x:Name="DevelopedInGrid"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Opacity="0">
             <StackPanel.Resources>
                 <Storyboard x:Name="DevInFadeInStoryboard">
                     <DoubleAnimation
-                Storyboard.TargetName="DevelopedInGrid"
-                Storyboard.TargetProperty="Opacity"
-                From="0.0" To="1.0" 
-                Duration="0:0:1.3" />
+                        Storyboard.TargetName="DevelopedInGrid"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0"
+                        To="1.0"
+                        Duration="0:0:1.3" />
                 </Storyboard>
 
                 <Storyboard x:Name="DevInFadeOutStoryboard">
                     <DoubleAnimation
-                Storyboard.TargetName="DevelopedInGrid"
-                Storyboard.TargetProperty="Opacity"
-                From="1.0" To="0.0" 
-                Duration="0:0:1.3" />
+                        Storyboard.TargetName="DevelopedInGrid"
+                        Storyboard.TargetProperty="Opacity"
+                        From="1.0"
+                        To="0.0"
+                        Duration="0:0:1.3" />
                 </Storyboard>
             </StackPanel.Resources>
-            <TextBlock Text="Made in:" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="30"/>
-            <TextBlock Text="Windows App SDK (Visual Studio 2026)" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" FontSize="30"/>
+            <TextBlock
+                HorizontalAlignment="Center"
+                l:Uids.Uid="MadeWithString"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="30"
+                Text="Made with:" />
+            <TextBlock
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="30"
+                Text="Windows App SDK (Visual Studio 2026)" />
         </StackPanel>
-        <StackPanel x:Name="DisclaimerGrid" Opacity="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel
+            x:Name="DisclaimerGrid"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Opacity="0">
             <StackPanel.Resources>
                 <Storyboard x:Name="DisclmFadeInStoryboard">
                     <DoubleAnimation
-                Storyboard.TargetName="DisclaimerGrid"
-                Storyboard.TargetProperty="Opacity"
-                From="0.0" To="1.0" 
-                Duration="0:0:0.8" />
+                        Storyboard.TargetName="DisclaimerGrid"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.0"
+                        To="1.0"
+                        Duration="0:0:0.8" />
                 </Storyboard>
 
                 <Storyboard x:Name="DisclmFadeOutStoryboard">
                     <DoubleAnimation
-                Storyboard.TargetName="DisclaimerGrid"
-                Storyboard.TargetProperty="Opacity"
-                From="1.0" To="0.0" 
-                Duration="0:0:1" />
+                        Storyboard.TargetName="DisclaimerGrid"
+                        Storyboard.TargetProperty="Opacity"
+                        From="1.0"
+                        To="0.0"
+                        Duration="0:0:1" />
                 </Storyboard>
             </StackPanel.Resources>
-            <TextBlock Text="All the characters and operating" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="systems depicted are fictitious." FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="Any resemblance to a character," FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="operating system living or dead" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="is purely coincidental" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="Also, this game is a remake of" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20" Margin="0,10,0,0"/>
-            <TextBlock Text="the original Progressbar95. All" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="assets used in this game belong" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
-            <TextBlock Text="to icoeye" FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont" HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="All the characters and operating" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="systems depicted are fictitious." />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="Any resemblance to a character," />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="operating system living or dead" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="is purely coincidental" />
+            <TextBlock
+                Margin="0,10,0,0"
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="Also, this game is a remake of" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="the original Progressbar95. All" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="assets used in this game belong" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="/Assets/Fonts/DOSFont.ttf#DOSFont"
+                FontSize="20"
+                Text="to icoeye" />
         </StackPanel>
     </Grid>
 </Page>
