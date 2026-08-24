@@ -10,10 +10,6 @@
     Title=""
     mc:Ignorable="d">
 
-    <winex:WindowEx.SystemBackdrop>
-        <MicaBackdrop Kind="Base" />
-    </winex:WindowEx.SystemBackdrop>
-
     <Grid>
         <TitleBar
             x:Name="AppTitleBar"
@@ -21,16 +17,14 @@
             Grid.Row="1"
             Height="32"
             VerticalAlignment="Top"
-            l:Uids.Uid="AppTitleBarString"
-            RequestedTheme="Light">
+            l:Uids.Uid="AppTitleBarString">
             <TitleBar.IconSource>
                 <ImageIconSource ImageSource="/Assets/StoreLogo.png" />
             </TitleBar.IconSource>
         </TitleBar>
         <Grid
             Margin="0,32,0,0"
-            Background="Black"
-            RequestedTheme="Dark">
+            Background="Black">
             <Viewbox>
                 <Frame
                     x:Name="GameFrame"

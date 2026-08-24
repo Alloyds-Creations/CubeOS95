@@ -24,8 +24,6 @@ namespace CubeOS95
 
             OverlappedPresenter presenter = OverlappedPresenter.Create();
 
-            presenter.IsResizable = false;
-
             AppWindow.SetPresenter(presenter);
 
             presenter.PreferredMinimumWidth = MinWidth;
