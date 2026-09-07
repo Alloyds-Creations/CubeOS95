@@ -27,11 +27,18 @@ namespace CubeOS95.OperatingSystems.CubeOS95.Resources.Pages
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             await Task.Delay(3000);
-            this.TurnOn.Visibility = Visibility.Visible;
+            this.TurnOn.Opacity = 1;
+            this.TurnOn.IsHitTestVisible = true;
+            this.CloseGame.Opacity = 1;
+            this.CloseGame.IsHitTestVisible = true;
         }
         private void TurnOn_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(OSSelect), null, new SuppressNavigationTransitionInfo());
+        }
+        private void CloseGame_Click(object sender, RoutedEventArgs e)
+        {
+            App.m_window?.Close();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

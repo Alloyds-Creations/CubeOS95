@@ -9,10 +9,10 @@
     Background="Black"
     Loaded="Page_Loaded">
 
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid x:Name="RootGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="It's now safe to turn off the game" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/selawk.ttf#Selawik" Foreground="#F55C25" FontSize="60" TextAlignment="Center" TextWrapping="Wrap" Width="620"/>
-            <Button x:Name="TurnOn" Visibility="Collapsed" IsTabStop="False" UseSystemFocusVisuals="False" CornerRadius="0" Padding="0" Click="TurnOn_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0">
+            <Button x:Name="TurnOn" Opacity="0" IsHitTestVisible="False" IsTabStop="False" UseSystemFocusVisuals="False" CornerRadius="0" Padding="0" Click="TurnOn_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0">
                 <Button.Resources>
                     <ResourceDictionary>
                         <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -29,6 +29,24 @@
                     </ResourceDictionary>
                 </Button.Resources>
                 <TextBlock Text="Turn On" FontSize="18" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"/>
+            </Button>
+            <Button x:Name="CloseGame" Opacity="0" IsHitTestVisible="False" IsTabStop="False" UseSystemFocusVisuals="False" CornerRadius="0" Padding="0" Click="CloseGame_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button.Resources>
+                    <ResourceDictionary>
+                        <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonBackground" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonBorderBrushDisabled" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonForeground" Color="White"/>
+                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                        <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White"/>
+                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                        <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent"/>
+                    </ResourceDictionary>
+                </Button.Resources>
+                <TextBlock Text="Close Game" FontSize="18" FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"/>
             </Button>
         </StackPanel>
     </Grid>
