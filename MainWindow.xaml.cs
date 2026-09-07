@@ -40,7 +40,7 @@ namespace CubeOS95
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
             AppWindow.SetIcon("Assets/icon.ico");
-            AppWindow.TitleBar.IconShowOptions = IconShowOptions.ShowIconAndSystemMenu;
+            AppWindow.TitleBar.IconShowOptions = IconShowOptions.HideIconAndSystemMenu;
             systemUiSettings.ColorValuesChanged += SystemUiSettings_ColorValuesChanged;
             ApplyMenuTheme();
             ApplyTitleBarTheme();
