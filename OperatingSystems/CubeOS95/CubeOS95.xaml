@@ -1397,6 +1397,7 @@
                                 VerticalAlignment="Center"
                                 FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                                 FontWeight="Black"
+                                l:Uids.Uid="MyMenuString"
                                 Text="My menu" />
                         </StackPanel>
                         <Button
@@ -1546,7 +1547,8 @@
         <Grid
             x:Name="Desktop"
             Margin="0,0,0,43"
-            Background="#018485">
+            Background="#018485"
+            PointerPressed="Desktop_PointerPressed">
             <StackPanel
                 x:Name="LeftDesktopIcons"
                 HorizontalAlignment="Left"
@@ -1646,6 +1648,7 @@
                         Margin="0,1,0,0"
                         FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                         FontSize="15"
+                        l:Uids.Uid="MyMenuDesktopString"
                         Text="My menu" />
                 </StackPanel>
                 <StackPanel
@@ -1842,6 +1845,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                         FontSize="15"
+                        l:Uids.Uid="AchievementsString"
                         Text="Achievements" />
                 </StackPanel>
                 <StackPanel
@@ -1940,6 +1944,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                         FontSize="15"
+                        l:Uids.Uid="CalendarString"
                         Text="Calendar" />
                 </StackPanel>
             </StackPanel>
@@ -2043,6 +2048,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                         FontSize="15"
+                        l:Uids.Uid="BinString"
                         Text="Bin" />
                 </StackPanel>
                 <StackPanel
@@ -2141,6 +2147,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
                         FontSize="15"
+                        l:Uids.Uid="DefragmentationString"
                         Text="Defragmentation" />
                 </StackPanel>
                 <StackPanel
@@ -2795,7 +2802,8 @@
             VerticalAlignment="Bottom"
             Background="#BDBDBD"
             BorderBrush="#E9E9E9"
-            BorderThickness="0,2,0,0">
+            BorderThickness="0,2,0,0"
+            PointerPressed="Taskbar_PointerPressed">
             <StackPanel x:Name="BeginButtonPanel">
                 <ToggleButton
                     x:Name="BeginButton"

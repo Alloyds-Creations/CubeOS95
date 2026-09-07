@@ -142,11 +142,24 @@ namespace CubeOS95
         {
             if (App.m_window is MainWindow mainWindow)
             {
-                string version = Assembly.GetEntryAssembly()?.GetName().Version?.ToString(2) ?? "0.0";
-                string title = mainWindow.AppTitleBar.Title;
+                string version = Assembly
+                    .GetEntryAssembly()?
+                    .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
+                    .InformationalVersion
+                    .Split('+')[0]
+                    ?? "0.0.0";
+                string title = string.Empty;
+                if (Localizer.Get() is ILocalizer localizer)
+                {
+                    title = localizer.GetLocalizedString("AppTitleBarTitle");
+                }
+
                 if (!string.IsNullOrEmpty(title))
                 {
-                    title = System.Text.RegularExpressions.Regex.Replace(title, @"\d+\.\d+", version);
+                    title = System.Text.RegularExpressions.Regex.Replace(
+                        title,
+                        @"\d+(?:\.\d+){1,2}",
+                        version);
                 }
                 else
                 {

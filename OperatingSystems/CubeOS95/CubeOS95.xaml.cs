@@ -85,6 +85,34 @@ namespace CubeOS95.OperatingSystems.CubeOS95
         {
             this.BeginMenu.Visibility = Visibility.Collapsed;
         }
+        private void Desktop_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            HideBeginMenu();
+        }
+        private void Taskbar_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            DependencyObject? source = e.OriginalSource as DependencyObject;
+            while (source is not null)
+            {
+                if (source == BeginButton)
+                {
+                    return;
+                }
+
+                source = VisualTreeHelper.GetParent(source);
+            }
+
+            HideBeginMenu();
+        }
+        private void HideBeginMenu()
+        {
+            if (BeginButton.IsChecked == true)
+            {
+                BeginButton.IsChecked = false;
+            }
+
+            BeginMenu.Visibility = Visibility.Collapsed;
+        }
         private void ShutDown_Click(object sender, RoutedEventArgs e)
         {
             this.BeginButton.IsChecked = false;

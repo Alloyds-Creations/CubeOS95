@@ -147,7 +147,22 @@
   <data name="MadeWithString.Text" xml:space="preserve">
     <value>Made with:</value>
   </data>
-  <data name="AppTitleBarString.Title" xml:space="preserve">
-    <value>CubeOS 95 - Version 0.2 Alpha</value>
+  <data name="MyMenuDesktopString.Text" xml:space="preserve">
+    <value>My menu</value>
+  </data>
+  <data name="AchievementsString.Text" xml:space="preserve">
+    <value>Achievements</value>
+  </data>
+  <data name="CalendarString.Text" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="BinString.Text" xml:space="preserve">
+    <value>Bin</value>
+  </data>
+  <data name="DefragmentationString.Text" xml:space="preserve">
+    <value>Defragmentation</value>
+  </data>
+    <data name="AppTitleBarTitle" xml:space="preserve">
+    <value>CubeOS 95 - Version 0.2.1 Alpha</value>
   </data>
 </root>

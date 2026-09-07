@@ -14,17 +14,27 @@
   	<WindowsPackageType>None</WindowsPackageType>
 	  <PublishAot>true</PublishAot>
 	  <AssemblyName>CubeOS 95</AssemblyName>
+	  <AssemblyTitle>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</AssemblyTitle>
 	  <Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
 	  <Product>CubeOS 95</Product>
-	  <Description>A Progressbar95 remake in C# and WinUI 3.</Description>
+	  <Description>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</Description>
 	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   	<Nullable>enable</Nullable>
 	  <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-  	<Version>0.2.0.0</Version>
-	  <AssemblyVersion>0.2.0.0</AssemblyVersion>
-	  <FileVersion>0.2.0.0</FileVersion>
+  	<Version>0.2.1</Version>
+	  <AssemblyVersion>0.2.1.0</AssemblyVersion>
+	  <FileVersion>0.2.1</FileVersion>
 	  <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
+
+  <Target Name="SetGitInformationalVersion" BeforeTargets="GetAssemblyAttributes" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Exec Command="git rev-parse --short HEAD" ConsoleToMsBuild="true" IgnoreExitCode="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitCommitSha" />
+    </Exec>
+    <PropertyGroup Condition="'$(GitCommitSha)' != ''">
+      <InformationalVersion>$(Version)+$(GitCommitSha)</InformationalVersion>
+    </PropertyGroup>
+  </Target>
 
 	<ItemGroup>
 		<Content Include="Strings\**\*.resw">
