@@ -16,7 +16,7 @@
             x:Name="ShutDownWindow"
             Background="Transparent"
             Canvas.ZIndex="1"
-            Visibility="Collapsed">
+            Visibility="{x:Bind local:CubeOS95.BoolToVisibility(ViewModel.IsShutdownWindowVisible), Mode=OneWay}">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw" />
             <Grid
                 x:Name="ShutDownWindowItself"
@@ -53,9 +53,9 @@
                             Height="21"
                             Margin="0,5,4,3"
                             HorizontalAlignment="Right"
-                            Click="CloseShutDownWindow_Click"
+                            Command="{x:Bind ViewModel.CloseShutdownWindowCommand}"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="CloseShutDownWindow" AutomationProperties.Name="CloseShutDownWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -154,9 +154,9 @@
                             Margin="0,0,0,26"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Bottom"
-                            Click="RestartButton_Click"
+                            Command="{x:Bind ViewModel.RestartCommand}"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="RestartButton" AutomationProperties.Name="RestartButton">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -249,9 +249,9 @@
                             Margin="0,0,0,15"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Bottom"
-                            Click="ShutDownButton_Click"
+                            Command="{x:Bind ViewModel.ShutDownCommand}"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="ShutDownButton" AutomationProperties.Name="ShutDownButton">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -349,7 +349,7 @@
             x:Name="GameModesAndChallengesWindow"
             Background="Transparent"
             Canvas.ZIndex="1"
-            Visibility="Collapsed">
+            Visibility="{x:Bind local:CubeOS95.BoolToVisibility(ViewModel.IsGameModesWindowVisible), Mode=OneWay}">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw" />
             <Grid
                 x:Name="GameModesWindowItself"
@@ -396,9 +396,9 @@
                             Height="21"
                             Margin="0,5,4,3"
                             HorizontalAlignment="Right"
-                            Click="CloseGameModesAndChallengesWindow_Click"
+                            Command="{x:Bind ViewModel.CloseGameModesWindowCommand}"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="CloseGameModesAndChallengesWindow" AutomationProperties.Name="CloseGameModesAndChallengesWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -513,10 +513,10 @@
                             <Button
                                 x:Name="DifficutlyLevelRelax"
                                 Padding="0"
-                                Click="DifficutlyLevelRelax_Click"
+                                Command="{x:Bind ViewModel.PlayClickCommand}"
                                 CornerRadius="0"
                                 IsTabStop="False"
-                                UseSystemFocusVisuals="False">
+                                UseSystemFocusVisuals="False" AutomationProperties.AutomationId="DifficutlyLevelRelax" AutomationProperties.Name="DifficutlyLevelRelax">
                                 <Button.Resources>
                                     <ResourceDictionary>
                                         <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -672,7 +672,7 @@
                             HorizontalAlignment="Right"
                             IsEnabled="False"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="CloseChallengesWindow" AutomationProperties.Name="CloseChallengesWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -757,7 +757,7 @@
             x:Name="SettingsWindow"
             Background="Transparent"
             Canvas.ZIndex="1"
-            Visibility="Collapsed">
+            Visibility="{x:Bind local:CubeOS95.BoolToVisibility(ViewModel.IsSettingsWindowVisible), Mode=OneWay}">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw" />
             <Grid
                 x:Name="SettingsWindowItself"
@@ -802,9 +802,9 @@
                             Height="21"
                             Margin="0,5,4,3"
                             HorizontalAlignment="Right"
-                            Click="CloseSettingsWindow_Click"
+                            Command="{x:Bind ViewModel.CloseSettingsWindowCommand}"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="CloseSettingsWindow" AutomationProperties.Name="CloseSettingsWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -895,11 +895,11 @@
                     x:Name="GameLanguageEN"
                     Margin="10,40,0,0"
                     VerticalAlignment="Top"
-                    Checked="GameLanguageEN_Checked"
+                    Command="{x:Bind ViewModel.SelectEnglishCommand}" IsChecked="{x:Bind ViewModel.IsEnglishSelected, Mode=TwoWay}"
                     Content="English"
                     l:Uids.Uid="GameLanguageEN"
                     FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                    GroupName="GameLanguage">
+                    GroupName="GameLanguage" AutomationProperties.AutomationId="GameLanguageEN" AutomationProperties.Name="GameLanguageEN">
                     <RadioButton.Style>
                         <Style TargetType="RadioButton">
                             <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
@@ -1121,11 +1121,11 @@
                     x:Name="GameLanguageRU"
                     Margin="10,70,0,0"
                     VerticalAlignment="Top"
-                    Checked="GameLanguageRU_Checked"
+                    Command="{x:Bind ViewModel.SelectRussianCommand}" IsChecked="{x:Bind ViewModel.IsRussianSelected, Mode=TwoWay}"
                     Content="Russian"
                     l:Uids.Uid="GameLanguageRU"
                     FontFamily="/OperatingSystems/CubeOS95/Resources/Fonts/progresspixel.ttf#progresspixel"
-                    GroupName="GameLanguage">
+                    GroupName="GameLanguage" AutomationProperties.AutomationId="GameLanguageRU" AutomationProperties.Name="GameLanguageRU">
                     <RadioButton.Style>
                         <Style TargetType="RadioButton">
                             <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
@@ -1361,7 +1361,7 @@
             x:Name="MyMenuWindow"
             Background="Transparent"
             Canvas.ZIndex="1"
-            Visibility="Collapsed">
+            Visibility="{x:Bind local:CubeOS95.BoolToVisibility(ViewModel.IsMyMenuWindowVisible), Mode=OneWay}">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw" />
             <Grid
                 x:Name="MyMenuWindowItself"
@@ -1406,9 +1406,9 @@
                             Height="21"
                             Margin="0,5,4,3"
                             HorizontalAlignment="Right"
-                            Click="CloseMyMenuWindow_Click"
+                            Command="{x:Bind ViewModel.CloseMyMenuWindowCommand}"
                             IsTabStop="False"
-                            UseSystemFocusVisuals="False">
+                            UseSystemFocusVisuals="False" AutomationProperties.AutomationId="CloseMyMenuWindow" AutomationProperties.Name="CloseMyMenuWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -1562,9 +1562,9 @@
                         x:Name="MyMenu"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="MyMenu_Click"
+                        Command="{x:Bind ViewModel.OpenMyMenuWindowCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="MyMenu" AutomationProperties.Name="MyMenu">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -1660,9 +1660,9 @@
                         x:Name="TheButtonForTheCubenet"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="Cubenet_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="TheButtonForTheCubenet" AutomationProperties.Name="TheButtonForTheCubenet">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -1758,9 +1758,9 @@
                         x:Name="Achievements"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="Achievements_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Achievements" AutomationProperties.Name="Achievements">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -1857,9 +1857,9 @@
                         x:Name="Calendar"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="Calendar_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Calendar" AutomationProperties.Name="Calendar">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -1961,9 +1961,9 @@
                         x:Name="Bin"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="Bin_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Bin" AutomationProperties.Name="Bin">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2060,9 +2060,9 @@
                         x:Name="Defragmentation"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="Defragmentation_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Defragmentation" AutomationProperties.Name="Defragmentation">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2159,9 +2159,9 @@
                         x:Name="MediaPlayer"
                         Padding="0"
                         HorizontalAlignment="Center"
-                        Click="MediaPlayer_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="MediaPlayer" AutomationProperties.Name="MediaPlayer">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2259,7 +2259,7 @@
             VerticalAlignment="Bottom"
             Background="#C0C0C0"
             Canvas.ZIndex="1"
-            Visibility="Collapsed">
+            Visibility="{x:Bind local:CubeOS95.BoolToVisibility(ViewModel.IsBeginMenuOpen), Mode=OneWay}">
             <Border
                 x:Name="BeginBorderLeftAndTop"
                 BorderBrush="White"
@@ -2298,10 +2298,10 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Left"
                     BorderThickness="1"
-                    Click="LoadSave_Click"
+                    Command="{x:Bind ViewModel.OpenGameModesWindowCommand}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="LoadSave" AutomationProperties.Name="LoadSave">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2381,10 +2381,10 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Left"
                     BorderThickness="1"
-                    Click="NewGame_Click"
+                    Command="{x:Bind ViewModel.PlayClickCommand}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="NewGame" AutomationProperties.Name="NewGame">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2464,10 +2464,10 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Left"
                     BorderThickness="1"
-                    Click="Settings_Click"
+                    Command="{x:Bind ViewModel.OpenSettingsWindowCommand}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Settings" AutomationProperties.Name="Settings">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2548,10 +2548,10 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Left"
                     BorderThickness="1"
-                    Click="CubeDOS_Click"
+                    Command="{x:Bind ViewModel.PlayClickCommand}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="CubeDOS" AutomationProperties.Name="CubeDOS">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2631,10 +2631,10 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Left"
                     BorderThickness="1"
-                    Click="Help_Click"
+                    Command="{x:Bind ViewModel.PlayClickCommand}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Help" AutomationProperties.Name="Help">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2714,10 +2714,10 @@
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Left"
                     BorderThickness="1"
-                    Click="ShutDown_Click"
+                    Command="{x:Bind ViewModel.OpenShutdownWindowCommand}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="ShutDown" AutomationProperties.Name="ShutDown">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -2812,12 +2812,10 @@
                     Margin="5,3,0,4"
                     HorizontalContentAlignment="Left"
                     Background="#C0C0C0"
-                    Checked="BeginButton_Checked"
-                    Click="BeginButton_Click"
+                    Command="{x:Bind ViewModel.PlayClickCommand}" IsChecked="{x:Bind ViewModel.IsBeginMenuOpen, Mode=TwoWay}"
                     CornerRadius="0"
                     IsTabStop="False"
-                    Unchecked="BeginButton_Unchecked"
-                    UseSystemFocusVisuals="False">
+                    UseSystemFocusVisuals="False" AutomationProperties.AutomationId="BeginButton" AutomationProperties.Name="BeginButton">
                     <ToggleButton.Style>
                         <Style TargetType="ToggleButton">
                             <Setter Property="Template">
@@ -2968,10 +2966,10 @@
                         Height="30"
                         Margin="2,-1,0,0"
                         BorderBrush="Transparent"
-                        Click="GameLanguage_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         CornerRadius="0"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="GameLanguage" AutomationProperties.Name="GameLanguage">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -3054,9 +3052,9 @@
                         Height="35"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        Click="SoundToggle_Click"
+                        Command="{x:Bind ViewModel.PlayClickCommand}"
                         IsTabStop="False"
-                        UseSystemFocusVisuals="False">
+                        UseSystemFocusVisuals="False" AutomationProperties.AutomationId="SoundToggle" AutomationProperties.Name="SoundToggle">
                         <Image
                             Width="28"
                             Height="28"

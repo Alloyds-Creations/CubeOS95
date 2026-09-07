@@ -1,54 +1,25 @@
-using CommunityToolkit.WinUI.Animations;
+using CubeOS95.Services;
+using CubeOS95.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using CubeOS95.OperatingSystems.CubeOS95.Resources.Pages;
-using CubeOS95.OperatingSystems.CubeOS95Plus.Resources.Pages;
-using WinUI3Localizer;
+using System.Threading.Tasks;
 
-namespace CubeOS95
+namespace CubeOS95;
+
+public sealed partial class OSSelect : Page
 {
-    public sealed partial class OSSelect : Page
+    public OSSelectViewModel ViewModel { get; }
+
+    public OSSelect()
     {
-        public OSSelect()
-        {
-            this.InitializeComponent();
-        }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            if (Localizer.Get() is ILocalizer localizer)
-            {
-                await localizer.SetLanguage(GameSettings.CurrentLanguage);
-            }
-        }
-        private void StartCubeOS95_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(StartingCubeOS95), null, new SuppressNavigationTransitionInfo());
-        }
-        private void StartCubeOS95Plus_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(StartingCubeOS95Plus), null, new SuppressNavigationTransitionInfo());
-        }
-        private void GameSettings_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(BIOS_Settings), null, new SuppressNavigationTransitionInfo());
-        }
-        private void ViewIntro_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(GameIntro), null, new SuppressNavigationTransitionInfo());
-        }
+        ViewModel = new OSSelectViewModel(new FrameNavigationService(() => Frame));
+        InitializeComponent();
+    }
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        base.OnNavigatedTo(e);
+        await ViewModel.OnNavigatedToAsync();
     }
 }

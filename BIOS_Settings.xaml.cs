@@ -1,33 +1,16 @@
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
-using Microsoft.UI.Xaml;
+using CubeOS95.Services;
+using CubeOS95.ViewModels;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Media.Animation;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using WinRT.Interop;
 
-namespace CubeOS95
+namespace CubeOS95;
+
+public sealed partial class BIOS_Settings : Page
 {
-    public sealed partial class BIOS_Settings : Page
+    public BIOSSettingsViewModel ViewModel { get; }
+
+    public BIOS_Settings()
     {
-        public BIOS_Settings()
-        {
-            InitializeComponent();
-        }
-        private void ExitWithoutSavingButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(OSSelect), null, new SuppressNavigationTransitionInfo());
-        }
+        ViewModel = new BIOSSettingsViewModel(new FrameNavigationService(() => Frame));
+        InitializeComponent();
     }
 }

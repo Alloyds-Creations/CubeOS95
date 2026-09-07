@@ -1,54 +1,68 @@
+using CubeOS95.Services;
+using CubeOS95.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
-using WinUI3Localizer;
 
-namespace CubeOS95
+namespace CubeOS95;
+
+public sealed partial class GameIntro : Page
 {
-    public sealed partial class GameIntro : Page
+    public GameIntroViewModel ViewModel { get; }
+
+    public GameIntro()
     {
-        public GameIntro()
-        {
-            InitializeComponent();
-        }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            if (Localizer.Get() is ILocalizer localizer)
-            {
-                await localizer.SetLanguage(GameSettings.CurrentLanguage);
-            }
-        }
-        private async void GameIntro_Loaded(object sender, RoutedEventArgs e)
-        {
-            MadeByFadeInStoryboard.Begin();
+        ViewModel = new GameIntroViewModel(new FrameNavigationService(() => Frame));
+        InitializeComponent();
+        ViewModel.SetAnimationRunner(RunIntroAnimationsAsync);
+    }
 
-            await Task.Delay(2200);
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        base.OnNavigatedTo(e);
+        await ViewModel.OnNavigatedToAsync();
+    }
 
-            MadeByFadeOutStoryboard.Begin();
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.Dispose();
+        base.OnNavigatedFrom(e);
+    }
 
-            await Task.Delay(1200);
+    private async void GameIntro_Loaded(object sender, RoutedEventArgs e)
+    {
+        await ViewModel.StartIntroCommand.ExecuteAsync(null);
+    }
 
-            DevInFadeInStoryboard.Begin();
+    private async Task RunIntroAnimationsAsync(CancellationToken cancellationToken)
+    {
+        await BeginStoryboardAsync(MadeByFadeInStoryboard, cancellationToken);
+        await DelayAsync(2200, cancellationToken);
+        MadeByFadeOutStoryboard.Begin();
+        await DelayAsync(1200, cancellationToken);
+        DevInFadeInStoryboard.Begin();
+        await DelayAsync(2200, cancellationToken);
+        DevInFadeOutStoryboard.Begin();
+        await DelayAsync(1200, cancellationToken);
+        DisclmFadeInStoryboard.Begin();
+        await DelayAsync(2200, cancellationToken);
+        DisclmFadeOutStoryboard.Begin();
+        await DelayAsync(1100, cancellationToken);
+    }
 
-            await Task.Delay(2200);
+    private static async Task BeginStoryboardAsync(Storyboard storyboard, CancellationToken cancellationToken)
+    {
+        storyboard.Begin();
+        await Task.Yield();
+        cancellationToken.ThrowIfCancellationRequested();
+    }
 
-            DevInFadeOutStoryboard.Begin();
-
-            await Task.Delay(1200);
-
-            DisclmFadeInStoryboard.Begin();
-
-            await Task.Delay(2200);
-
-            DisclmFadeOutStoryboard.Begin();
-
-            await Task.Delay(1100);
-
-            this.Frame.Navigate(typeof(OSSelect), null, new SuppressNavigationTransitionInfo());
-        }
+    private static async Task DelayAsync(int milliseconds, CancellationToken cancellationToken)
+    {
+        await Task.Delay(milliseconds, cancellationToken);
     }
 }

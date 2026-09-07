@@ -12,14 +12,14 @@
     Loaded="Page_Loaded">
 
     <Grid x:Name="RootGrid">
-        <Grid x:Name="ShutDownWindow" Canvas.ZIndex="1" Visibility="Collapsed" Background="Transparent">
+        <Grid x:Name="ShutDownWindow" Canvas.ZIndex="1"         Visibility="{x:Bind local:CubeOS95Plus.BoolToVisibility(ViewModel.IsShutdownWindowVisible), Mode=OneWay}" Background="Transparent">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw"/>
             <Grid x:Name="ShutDownWindowItself" Width="338" Height="240">
                 <Border x:Name="ShutDownWindowBorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White"/>
                 <Grid x:Name="ShutDownWindowGrid" Background="#C0C0C0" VerticalAlignment="Stretch" Margin="2,2,1,1" HorizontalAlignment="Stretch">
                     <Grid x:Name="ShutDownWindowTitleBar" Background="#5C2882" Height="29" Width="332" Margin="0,1,2,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
                         <TextBlock Text="Restart/Shutdown" HorizontalAlignment="Left" FontWeight="Black" Margin="5,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
-                        <Button x:Name="CloseShutDownWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Click="CloseShutDownWindow_Click">
+                        <Button x:Name="CloseShutDownWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Command="{x:Bind ViewModel.CloseShutdownWindowCommand}" AutomationProperties.AutomationId="CloseShutDownWindow" AutomationProperties.Name="CloseShutDownWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -90,8 +90,8 @@
                     </Grid>
                     <Image Width="32" UseLayoutRounding="False" Height="100" Margin="45,58,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/starticon_6.png"/>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
-                        <RadioButtons x:Name="PowerChoices" SelectedIndex="0">
-                            <RadioButton GroupName="PowerChoice" Click="RestartOS_Click" x:Name="RestartOS" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" FontSize="15" Content="Restart" Foreground="Black" RequestedTheme="Light">
+                        <RadioButtons x:Name="PowerChoices" SelectedIndex="{x:Bind ViewModel.PowerChoiceIndex, Mode=TwoWay}" AutomationProperties.AutomationId="PowerChoices" AutomationProperties.Name="PowerChoices">
+                            <RadioButton GroupName="PowerChoice" Command="{x:Bind ViewModel.PlayClickCommand}" x:Name="RestartOS" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" FontSize="15" Content="Restart" Foreground="Black" RequestedTheme="Light" AutomationProperties.AutomationId="RestartOS" AutomationProperties.Name="RestartOS">
                                 <RadioButton.Style>
                                     <Style TargetType="RadioButton">
                                         <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
@@ -315,7 +315,7 @@
                                     </Style>
                                 </RadioButton.Style>
                             </RadioButton>
-                            <RadioButton GroupName="PowerChoice" Click="ShutdownOS_Click" x:Name="ShutdownOS" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" FontSize="15" Margin="0,5,0,0" Content="Shutdown" Foreground="Black" RequestedTheme="Light">
+                            <RadioButton GroupName="PowerChoice" Command="{x:Bind ViewModel.PlayClickCommand}" x:Name="ShutdownOS" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel" FontSize="15" Margin="0,5,0,0" Content="Shutdown" Foreground="Black" RequestedTheme="Light" AutomationProperties.AutomationId="ShutdownOS" AutomationProperties.Name="ShutdownOS">
                                 <RadioButton.Style>
                                     <Style TargetType="RadioButton">
                                         <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
@@ -541,7 +541,7 @@
                             </RadioButton>
                         </RadioButtons>
                     </StackPanel>
-                    <Button x:Name="OKButton" Click="OKButton_Click" IsTabStop="False" UseSystemFocusVisuals="False" Width="140" Height="33" Margin="11,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                    <Button x:Name="OKButton" Command="{x:Bind ViewModel.ConfirmPowerChoiceCommand}" IsTabStop="False" UseSystemFocusVisuals="False" Width="140" Height="33" Margin="11,0,0,15" VerticalAlignment="Bottom" HorizontalAlignment="Left" AutomationProperties.AutomationId="OKButton" AutomationProperties.Name="OKButton">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -609,7 +609,7 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Button x:Name="CloseButton" IsTabStop="False" UseSystemFocusVisuals="False" Click="CloseButton_Click" Width="140" Height="33" Margin="0,0,10,15" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <Button x:Name="CloseButton" IsTabStop="False" UseSystemFocusVisuals="False" Command="{x:Bind ViewModel.CloseShutdownWindowCommand}" Width="140" Height="33" Margin="0,0,10,15" VerticalAlignment="Bottom" HorizontalAlignment="Right" AutomationProperties.AutomationId="CloseButton" AutomationProperties.Name="CloseButton">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -681,7 +681,7 @@
                 <Border x:Name="ShutDownWindowBorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black"/>
             </Grid>
         </Grid>
-        <Grid x:Name="SettingsWindow" Canvas.ZIndex="1" Visibility="Collapsed" Background="Transparent">
+        <Grid x:Name="SettingsWindow" Canvas.ZIndex="1" Visibility="{x:Bind local:CubeOS95Plus.BoolToVisibility(ViewModel.IsSettingsWindowVisible), Mode=OneWay}" Background="Transparent">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw"/>
             <Grid x:Name="SettingsWindowItself" Width="436" Height="436">
                 <Border x:Name="SettingsWindowBorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White"/>
@@ -691,7 +691,7 @@
                             <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/ico_settings.png" Height="24" Width="24" VerticalAlignment="Center"/>
                             <TextBlock Text="Settings" HorizontalAlignment="Left" FontWeight="Black" Margin="3,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                         </StackPanel>
-                        <Button x:Name="CloseSettingsWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Click="CloseSettingsWindow_Click">
+                        <Button x:Name="CloseSettingsWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Command="{x:Bind ViewModel.CloseSettingsWindowCommand}" AutomationProperties.AutomationId="CloseSettingsWindow" AutomationProperties.Name="CloseSettingsWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -765,7 +765,7 @@
                 <Border x:Name="SettingsWindowBorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black"/>
             </Grid>
         </Grid>
-        <Grid x:Name="MyMenuWindow" Canvas.ZIndex="1" Visibility="Collapsed" Background="Transparent">
+        <Grid x:Name="MyMenuWindow" Canvas.ZIndex="1" Visibility="{x:Bind local:CubeOS95Plus.BoolToVisibility(ViewModel.IsMyMenuWindowVisible), Mode=OneWay}" Background="Transparent">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw"/>
             <Grid x:Name="MyMenuWindowItself" Width="412" Height="633">
                 <Border x:Name="MyMenuWindowBorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White"/>
@@ -775,7 +775,7 @@
                             <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/ico_mymenu.png" Height="24" Width="24" VerticalAlignment="Center"/>
                             <TextBlock Text="My menu" HorizontalAlignment="Left" FontWeight="Black" Margin="3,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                         </StackPanel>
-                        <Button x:Name="CloseMyMenuWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Click="CloseMyMenuWindow_Click">
+                        <Button x:Name="CloseMyMenuWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Command="{x:Bind ViewModel.CloseMyMenuWindowCommand}" AutomationProperties.AutomationId="CloseMyMenuWindow" AutomationProperties.Name="CloseMyMenuWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -849,7 +849,7 @@
                 <Border x:Name="MyMenuWindowBorderRightAndBottom" BorderThickness="0,0,2,2" BorderBrush="Black"/>
             </Grid>
         </Grid>
-        <Grid x:Name="GameModesAndChallengesWindow" Canvas.ZIndex="1" Visibility="Collapsed" Background="Transparent">
+        <Grid x:Name="GameModesAndChallengesWindow" Canvas.ZIndex="1" Visibility="{x:Bind local:CubeOS95Plus.BoolToVisibility(ViewModel.IsGameModesWindowVisible), Mode=OneWay}" Background="Transparent">
             <win2d:CanvasControl CreateResources="BackgroundCanvas_CreateResources" Draw="BackgroundCanvas_Draw"/>
             <Grid x:Name="GameModesWindowItself" Width="388" Height="360" VerticalAlignment="Bottom" Margin="0,0,0,6">
                 <Border x:Name="GameModesWindowBorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White"/>
@@ -859,7 +859,7 @@
                             <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/ico_post.png" Height="24" Width="24" Margin="2,0,0,0" VerticalAlignment="Center"/>
                             <TextBlock Text="Game modes" HorizontalAlignment="Left" FontWeight="Black" Margin="3,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                         </StackPanel>
-                        <Button x:Name="CloseGameModesAndChallengesWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Click="CloseGameModesAndChallengesWindow_Click">
+                        <Button x:Name="CloseGameModesAndChallengesWindow" IsTabStop="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" Command="{x:Bind ViewModel.CloseGameModesWindowCommand}" AutomationProperties.AutomationId="CloseGameModesAndChallengesWindow" AutomationProperties.Name="CloseGameModesAndChallengesWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -934,7 +934,7 @@
                         <Border x:Name="DifficultyLevelsAndMiniGamesorderRightAndBottom3" BorderThickness="1,1,0,0" Margin="1,1,0,0" BorderBrush="#737373"/>
 
                         <StackPanel x:Name="DifficultyLevelRelaxPanel" Margin="37,17,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                            <Button x:Name="DifficutlyLevelRelax" Click="DifficutlyLevelRelax_Click" Padding="0" IsTabStop="False" CornerRadius="0" UseSystemFocusVisuals="False">
+                            <Button x:Name="DifficutlyLevelRelax" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" IsTabStop="False" CornerRadius="0" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="DifficutlyLevelRelax" AutomationProperties.Name="DifficutlyLevelRelax">
                                 <Button.Resources>
                                     <ResourceDictionary>
                                         <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1033,7 +1033,7 @@ AutomationProperties.AccessibilityView="Raw" />
                             <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/ico_challenge.png" Height="24" Width="24" Margin="3,0,0,0" VerticalAlignment="Center"/>
                             <TextBlock Text="Challenges" HorizontalAlignment="Left" FontWeight="Black" Margin="3,0,0,0" VerticalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                         </StackPanel>
-                        <Button x:Name="CloseChallengesWindow" IsTabStop="False" IsEnabled="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right">
+                        <Button x:Name="CloseChallengesWindow" IsTabStop="False" IsEnabled="False" UseSystemFocusVisuals="False" Height="21" Width="25" Margin="0,5,4,3" HorizontalAlignment="Right" AutomationProperties.AutomationId="CloseChallengesWindow" AutomationProperties.Name="CloseChallengesWindow">
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1130,7 +1130,7 @@ AutomationProperties.AccessibilityView="Raw" />
         <Grid x:Name="Desktop" Background="#018485" Margin="0,0,0,43">
             <StackPanel x:Name="LeftDesktopIcons" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <StackPanel x:Name="MyMenuPanel" Margin="35,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="MyMenu" Click="MyMenu_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="MyMenu" Command="{x:Bind ViewModel.OpenMyMenuWindowCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="MyMenu" AutomationProperties.Name="MyMenu">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1214,7 +1214,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="My menu" Margin="0,-4,0,0" FontSize="15" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="SystemBrowserPanel" Margin="13,32,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="SystemBrowser" Click="SystemBrowser_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="SystemBrowser" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="SystemBrowser" AutomationProperties.Name="SystemBrowser">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1298,7 +1298,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="System Browser" Margin="0,-4,0,0" HorizontalAlignment="Center" FontSize="15" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="AchievementsPanel" Margin="22,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="Achievements" Click="Achievements_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="Achievements" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Achievements" AutomationProperties.Name="Achievements">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1382,7 +1382,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="Achievements" Margin="0,-4,0,0" HorizontalAlignment="Center" FontSize="15" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="MailboxPanel" Margin="46,23,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="Mailbox" Click="Mailbox_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="Mailbox" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Mailbox" AutomationProperties.Name="Mailbox">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1466,7 +1466,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="Mailbox" Margin="0,-4,0,0" HorizontalAlignment="Center" FontSize="15" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="CalendarPanel" Margin="40,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="Calendar" Click="Calendar_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="Calendar" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Calendar" AutomationProperties.Name="Calendar">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1552,7 +1552,7 @@ AutomationProperties.AccessibilityView="Raw" />
             </StackPanel>
             <StackPanel x:Name="RightDesktopIcons" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                 <StackPanel x:Name="BinPanel" Margin="0,0,52,33" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button x:Name="Bin" Click="Bin_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="Bin" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Bin" AutomationProperties.Name="Bin">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1636,7 +1636,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="Bin" Margin="0,-4,0,0" FontSize="15" HorizontalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="DefragmentationPanel" Margin="0,0,20,30" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button x:Name="Defragmentation" Click="Defragmentation_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="Defragmentation" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Defragmentation" AutomationProperties.Name="Defragmentation">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1720,7 +1720,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="Defragmentation" Margin="0,-4,0,0" FontSize="15" HorizontalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="FirewallPanel" Margin="0,0,49,139" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button x:Name="Firewall" Click="Firewall_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="Firewall" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="Firewall" AutomationProperties.Name="Firewall">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1804,7 +1804,7 @@ AutomationProperties.AccessibilityView="Raw" />
                     <TextBlock Text="Firewall" Margin="0,-4,0,0" FontSize="15" HorizontalAlignment="Center" FontFamily="/OperatingSystems/CubeOS95Plus/Resources/Fonts/progresspixel.ttf#progresspixel"/>
                 </StackPanel>
                 <StackPanel x:Name="MediaPlayerPanel" Margin="0,0,29,39" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button x:Name="MediaPlayer" Click="MediaPlayer_Click" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False">
+                    <Button x:Name="MediaPlayer" Command="{x:Bind ViewModel.PlayClickCommand}" Padding="0" HorizontalAlignment="Center" IsTabStop="False" UseSystemFocusVisuals="False" AutomationProperties.AutomationId="MediaPlayer" AutomationProperties.Name="MediaPlayer">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -1904,7 +1904,7 @@ AutomationProperties.AccessibilityView="Raw" />
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <Grid x:Name="BeginMenu" Canvas.ZIndex="1" Background="#C0C0C0" Height="257" Width="246" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,39">
+        <Grid x:Name="BeginMenu" Canvas.ZIndex="1" Background="#C0C0C0" Height="257" Width="246" Visibility="{x:Bind local:CubeOS95Plus.BoolToVisibility(ViewModel.IsBeginMenuOpen), Mode=OneWay}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,39">
             <Border x:Name="BeginBorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="White"/>
             <Grid Margin="4,0,0,-35" Height="39" Width="250" Background="#5C2882" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                 <Grid.RenderTransform>
@@ -1920,7 +1920,7 @@ AutomationProperties.AccessibilityView="Raw" />
                 </StackPanel>
             </Grid>
             <StackPanel x:Name="Options" Margin="44,3,0,4">
-                <Button x:Name="LoadSave" CornerRadius="0" Click="LoadSave_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1"  VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="LoadSave" CornerRadius="0" Command="{x:Bind ViewModel.OpenGameModesWindowCommand}" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1"  VerticalAlignment="Top" Height="42" Width="199" AutomationProperties.AutomationId="LoadSave" AutomationProperties.Name="LoadSave">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2004,7 +2004,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="NewGame" CornerRadius="0" Click="NewGame_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="NewGame" CornerRadius="0" Command="{x:Bind ViewModel.PlayClickCommand}" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199" AutomationProperties.AutomationId="NewGame" AutomationProperties.Name="NewGame">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2088,7 +2088,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="Settings" CornerRadius="0" Click="Settings_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="Settings" CornerRadius="0" Command="{x:Bind ViewModel.OpenSettingsWindowCommand}" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199" AutomationProperties.AutomationId="Settings" AutomationProperties.Name="Settings">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2172,7 +2172,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="CubeDOS" CornerRadius="0" Click="CubeDOS_Click" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="CubeDOS" CornerRadius="0" Command="{x:Bind ViewModel.PlayClickCommand}" IsTabStop="False" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199" AutomationProperties.AutomationId="CubeDOS" AutomationProperties.Name="CubeDOS">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2256,7 +2256,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="Help" CornerRadius="0" IsTabStop="False" Click="Help_Click" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="Help" CornerRadius="0" IsTabStop="False" Command="{x:Bind ViewModel.PlayClickCommand}" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199" AutomationProperties.AutomationId="Help" AutomationProperties.Name="Help">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2340,7 +2340,7 @@ AutomationProperties.AccessibilityView="Raw" />
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="ShutDown" CornerRadius="0" IsTabStop="False" Click="ShutDown_Click" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199">
+                <Button x:Name="ShutDown" CornerRadius="0" IsTabStop="False" Command="{x:Bind ViewModel.OpenShutdownWindowCommand}" UseSystemFocusVisuals="False" HorizontalContentAlignment="Left" BorderThickness="1" VerticalAlignment="Top" Height="42" Width="199" AutomationProperties.AutomationId="ShutDown" AutomationProperties.Name="ShutDown">
                     <Button.Resources>
                         <ResourceDictionary>
                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2429,7 +2429,7 @@ AutomationProperties.AccessibilityView="Raw" />
         </Grid>
         <Grid x:Name="Taskbar" Background="#BDBDBD" BorderBrush="#E9E9E9" BorderThickness="0,2,0,0" VerticalAlignment="Bottom" Height="43">
             <StackPanel x:Name="BeginButtonPanel">
-                <ToggleButton x:Name="BeginButton" HorizontalContentAlignment="Left" Click="BeginButton_Click" Checked="BeginButton_Checked" Unchecked="BeginButton_Unchecked" Margin="5,3,0,4" Background="#C0C0C0" IsTabStop="False" UseSystemFocusVisuals="False" CornerRadius="0" Height="35" Width="94">
+                <ToggleButton x:Name="BeginButton" HorizontalContentAlignment="Left" Command="{x:Bind ViewModel.PlayClickCommand}" IsChecked="{x:Bind ViewModel.IsBeginMenuOpen, Mode=TwoWay}"   Margin="5,3,0,4" Background="#C0C0C0" IsTabStop="False" UseSystemFocusVisuals="False" CornerRadius="0" Height="35" Width="94" AutomationProperties.AutomationId="BeginButton" AutomationProperties.Name="BeginButton">
                     <ToggleButton.Style>
                         <Style TargetType="ToggleButton">
                             <Setter Property="Template">
@@ -2584,7 +2584,7 @@ AutomationProperties.AccessibilityView="Raw" />
             <Grid x:Name="SysTray" HorizontalAlignment="Right" Background="#C0C0C0" Width="146" VerticalAlignment="Center" Height="35" Margin="0,0,4,3">
                 <Border x:Name="TrayBorderLeftAndTop" BorderThickness="2,2,0,0" BorderBrush="#808080"/>
                 <StackPanel x:Name="TrayItems" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Button x:Name="GameLanguage" Click="GameLanguage_Click" BorderBrush="Transparent" IsTabStop="False" UseSystemFocusVisuals="False" Height="30" Width="30" Margin="2,-1,0,0" CornerRadius="0">
+                    <Button x:Name="GameLanguage" Command="{x:Bind ViewModel.PlayClickCommand}" BorderBrush="Transparent" IsTabStop="False" UseSystemFocusVisuals="False" Height="30" Width="30" Margin="2,-1,0,0" CornerRadius="0" AutomationProperties.AutomationId="GameLanguage" AutomationProperties.Name="GameLanguage">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent"/>
@@ -2663,7 +2663,7 @@ AutomationProperties.AccessibilityView="Raw" />
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Button x:Name="SoundToggle" Click="SoundToggle_Click" Background="Transparent" BorderBrush="Transparent" IsTabStop="False" UseSystemFocusVisuals="False" Height="35" Width="35">
+                    <Button x:Name="SoundToggle" Command="{x:Bind ViewModel.PlayClickCommand}" Background="Transparent" BorderBrush="Transparent" IsTabStop="False" UseSystemFocusVisuals="False" Height="35" Width="35" AutomationProperties.AutomationId="SoundToggle" AutomationProperties.Name="SoundToggle">
                         <Image Source="/OperatingSystems/CubeOS95Plus/Resources/Icons/soundicon.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="-7,-5,-13,-2"/>
                         <Button.Resources>
                             <ResourceDictionary>
