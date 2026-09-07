@@ -1,4 +1,4 @@
-using CubeOS95.OperatingSystems.CubeOS95.Resources.Pages;
+using CubeOS95.ViewModels;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.UI;
@@ -6,375 +6,117 @@ using Microsoft.Graphics.Canvas.UI.Xaml;
 using Microsoft.UI.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Numerics;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.DataTransfer;
-using Windows.Devices.Enumeration;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Media.Core;
-using Windows.Media.Playback;
-using Windows.UI.Core;
-using WinUI3Localizer;
 
-namespace CubeOS95.OperatingSystems.CubeOS95
+namespace CubeOS95.OperatingSystems.CubeOS95;
+
+public sealed partial class CubeOS95 : Page
 {
-    public sealed partial class CubeOS95 : Page
+    private Point _mouseDownLocation;
+    private CanvasBitmap? _backgroundImage;
+    private CanvasImageBrush? _backgroundBrush;
+
+    public CubeOS95ViewModel ViewModel { get; }
+
+    public CubeOS95()
     {
-        private Point MouseDownLocation;
-        MediaPlayer introPlay = new MediaPlayer();
-        MediaPlayer outroPlay = new MediaPlayer();
-        MediaPlayer clickPlay = new MediaPlayer();
-        private CanvasBitmap? backgroundImage;
-        private CanvasImageBrush? backgroundBrush;
-        public CubeOS95()
-        {
-            this.InitializeComponent();
-        }
+        ViewModel = new CubeOS95ViewModel(new Services.FrameNavigationService(() => Frame));
+        InitializeComponent();
+    }
 
-        private static Uri ToAppUri(string appRelativePath)
+    public static Visibility BoolToVisibility(bool value) =>
+        value ? Visibility.Visible : Visibility.Collapsed;
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        base.OnNavigatedTo(e);
+        await ViewModel.OnNavigatedToAsync();
+    }
+
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.OnNavigatedFrom();
+        base.OnNavigatedFrom(e);
+    }
+
+    private void BackgroundCanvas_CreateResources(CanvasControl sender, CanvasCreateResourcesEventArgs args)
+    {
+        args.TrackAsyncAction(Task.Run(async () =>
         {
-            string relativePath = appRelativePath.TrimStart('/', '\\').Replace('/', Path.DirectorySeparatorChar);
-            string absolutePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, relativePath));
-            return new Uri(absolutePath);
-        }
-        private void BackgroundCanvas_CreateResources(CanvasControl sender, CanvasCreateResourcesEventArgs args)
-        {
-            args.TrackAsyncAction(Task.Run(async () =>
+            string imagePath = Path.GetFullPath(Path.Combine(
+                AppContext.BaseDirectory,
+                "OperatingSystems",
+                "CubeOS95",
+                "Resources",
+                "Images",
+                "grid.png"));
+
+            using var imageStream = File.OpenRead(imagePath);
+            using var imageRandomAccessStream = imageStream.AsRandomAccessStream();
+            _backgroundImage = await CanvasBitmap.LoadAsync(sender, imageRandomAccessStream);
+            _backgroundBrush = new CanvasImageBrush(sender, _backgroundImage)
             {
-                string imagePath = Path.GetFullPath(Path.Combine(
-                    AppContext.BaseDirectory,
-                    "OperatingSystems",
-                    "CubeOS95",
-                    "Resources",
-                    "Images",
-                    "grid.png"));
+                ExtendX = CanvasEdgeBehavior.Wrap,
+                ExtendY = CanvasEdgeBehavior.Wrap,
+                Transform = Matrix3x2.CreateScale(0.4f)
+            };
+        }).AsAsyncAction());
+    }
 
-                using var imageStream = File.OpenRead(imagePath);
-                using var imageRandomAccessStream = imageStream.AsRandomAccessStream();
-                backgroundImage = await CanvasBitmap.LoadAsync(sender, imageRandomAccessStream);
-                backgroundBrush = new CanvasImageBrush(sender, backgroundImage);
+    private void BackgroundCanvas_Draw(CanvasControl sender, CanvasDrawEventArgs args)
+    {
+        args.DrawingSession.FillRectangle(new Rect(new Point(), sender.RenderSize), _backgroundBrush);
+    }
 
-                // Set the brush's edge behaviour to wrap, so the image repeats if the drawn region is too big
-                backgroundBrush.ExtendX = backgroundBrush.ExtendY = CanvasEdgeBehavior.Wrap;
-                backgroundBrush.Transform = System.Numerics.Matrix3x2.CreateScale(0.4f);
-            }).AsAsyncAction());
-        }
-        private void BackgroundCanvas_Draw(CanvasControl sender, CanvasDrawEventArgs args)
+    private async void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        await ViewModel.LoadPageAsync(cursor => ProtectedCursor = InputSystemCursor.Create(cursor));
+    }
+
+    private void Desktop_PointerPressed(object sender, PointerRoutedEventArgs e)
+    {
+        ViewModel.HideMenus();
+    }
+
+    private void Taskbar_PointerPressed(object sender, PointerRoutedEventArgs e)
+    {
+        DependencyObject? source = e.OriginalSource as DependencyObject;
+        while (source is not null)
         {
-            var session = args.DrawingSession;
-            session.FillRectangle(new Rect(new Point(), sender.RenderSize), backgroundBrush);
-        }
-        private void BeginButton_Checked(object sender, RoutedEventArgs e)
-        {
-            this.BeginMenu.Visibility = Visibility.Visible;
-        }
-        private void BeginButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            this.BeginMenu.Visibility = Visibility.Collapsed;
-        }
-        private void Desktop_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            HideBeginMenu();
-        }
-        private void Taskbar_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            DependencyObject? source = e.OriginalSource as DependencyObject;
-            while (source is not null)
+            if (source == BeginButton)
             {
-                if (source == BeginButton)
-                {
-                    return;
-                }
-
-                source = VisualTreeHelper.GetParent(source);
+                return;
             }
 
-            HideBeginMenu();
+            source = VisualTreeHelper.GetParent(source);
         }
-        private void HideBeginMenu()
-        {
-            if (BeginButton.IsChecked == true)
-            {
-                BeginButton.IsChecked = false;
-            }
 
-            BeginMenu.Visibility = Visibility.Collapsed;
-        }
-        private void ShutDown_Click(object sender, RoutedEventArgs e)
-        {
-            this.BeginButton.IsChecked = false;
-            this.BeginMenu.Visibility = Visibility.Collapsed;
-            this.ShutDownWindow.Visibility = Visibility.Visible;
+        ViewModel.HideMenus();
+    }
 
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void CloseShutDownWindow_Click(object sender, RoutedEventArgs e)
+    private void ProgressBar_PointerPressed(object sender, PointerRoutedEventArgs e)
+    {
+        if (sender is Grid grid && e.GetCurrentPoint(grid).Properties.IsLeftButtonPressed)
         {
-            this.ShutDownWindow.Visibility = Visibility.Collapsed;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
+            _mouseDownLocation = e.GetCurrentPoint(grid).Position;
         }
-        private void RestartButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShutDownWindow.Visibility = Visibility.Collapsed;
-            this.Frame.Navigate(typeof(PleaseWaitRestart), null, new SuppressNavigationTransitionInfo());
+    }
 
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-
-            introPlay.Dispose();
-            outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95/Resources/Sounds/outro_cos95.mp3"));
-            outroPlay.Volume = 0.1;
-            outroPlay.Play();
-        }
-        private void ShutDownButton_Click(object sender, RoutedEventArgs e)
+    private void ProgressBar_PointerMoved(object sender, PointerRoutedEventArgs e)
+    {
+        if (sender is Grid grid && e.GetCurrentPoint(grid).Properties.IsLeftButtonPressed)
         {
-            this.ShutDownWindow.Visibility = Visibility.Collapsed;
-            this.Frame.Navigate(typeof(PleaseWaitShutDown), null, new SuppressNavigationTransitionInfo());
-
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-
-            introPlay.Dispose();
-            outroPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95/Resources/Sounds/outro_cos95.mp3"));
-            outroPlay.Volume = 0.1;
-            outroPlay.Play();
-        }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            if (Localizer.Get() is ILocalizer localizer)
-            {
-                await localizer.SetLanguage(GameSettings.CurrentLanguage);
-            }
-            MainWindow.UpdateTitle();
-
-            GameLanguageEN.Checked -= GameLanguageEN_Checked;
-            GameLanguageRU.Checked -= GameLanguageRU_Checked;
-
-            if (GameSettings.CurrentLanguage == "ru-RU")
-            {
-                GameLanguageRU.IsChecked = true;
-            }
-            else
-            {
-                GameLanguageEN.IsChecked = true;
-            }
-
-            GameLanguageEN.Checked += GameLanguageEN_Checked;
-            GameLanguageRU.Checked += GameLanguageRU_Checked;
-
-            introPlay.Source = MediaSource.CreateFromUri(ToAppUri("/OperatingSystems/CubeOS95/Resources/Sounds/intro_cos95.mp3"));
-            introPlay.Volume = 0.1;
-            introPlay.Play();
-        }
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-
-            ShutDownButton.Click += ShutDownButton_Click;
-            RestartButton.Click += RestartButton_Click;
-        }
-        private void BeginButton_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Calendar_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Achievements_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Cubenet_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void MyMenu_Click(object sender, RoutedEventArgs e)
-        {
-            this.BeginButton.IsChecked = false;
-            this.BeginMenu.Visibility = Visibility.Collapsed;
-            this.MyMenuWindow.Visibility = Visibility.Visible;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void LoadSave_Click(object sender, RoutedEventArgs e)
-        {
-            this.BeginButton.IsChecked = false;
-            this.BeginMenu.Visibility = Visibility.Collapsed;
-            this.GameModesAndChallengesWindow.Visibility = Visibility.Visible;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void NewGame_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            this.BeginButton.IsChecked = false;
-            this.BeginMenu.Visibility = Visibility.Collapsed;
-            this.SettingsWindow.Visibility = Visibility.Visible;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void CubeDOS_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Help_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void SoundToggle_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void GameLanguage_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private async void GameLanguageEN_Checked(object sender, RoutedEventArgs e)
-        {
-            if (Localizer.Get() is ILocalizer localizer)
-            {
-                await localizer.SetLanguage("en-US");
-                GameSettings.Save(new GameSettingsData { Language = "en-US" });
-            }
-            MainWindow.UpdateTitle();
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private async void GameLanguageRU_Checked(object sender, RoutedEventArgs e)
-        {
-            if (Localizer.Get() is ILocalizer localizer)
-            {
-                await localizer.SetLanguage("ru-RU");
-                GameSettings.Save(new GameSettingsData { Language = "ru-RU" });
-            }
-            MainWindow.UpdateTitle();
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void MediaPlayer_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Defragmentation_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void Bin_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void CloseSettingsWindow_Click(object sender, RoutedEventArgs e)
-        {
-            this.SettingsWindow.Visibility = Visibility.Collapsed;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void CloseMyMenuWindow_Click(object sender, RoutedEventArgs e)
-        {
-            this.MyMenuWindow.Visibility = Visibility.Collapsed;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void ProgressBar_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            if (sender is Grid sp)
-            {
-                if (e.GetCurrentPoint(sp).Properties.IsLeftButtonPressed)
-                {
-                    MouseDownLocation.Y = e.GetCurrentPoint(sp).Position.Y;
-                    MouseDownLocation.X = e.GetCurrentPoint(sp).Position.X;
-                }
-            }
-        }
-        private void ProgressBar_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-            if (sender is Grid sp)
-            {
-                if (e.GetCurrentPoint(sp).Properties.IsLeftButtonPressed)
-                {
-                    var MarginLeft = e.GetCurrentPoint(sp).Position.X + sp.Margin.Left - MouseDownLocation.X;
-                    var MarginTop = e.GetCurrentPoint(sp).Position.Y + sp.Margin.Top - MouseDownLocation.Y;
-                    sp.Margin = new Thickness(MarginLeft, MarginTop, sp.Margin.Right, sp.Margin.Bottom);
-                }
-            }
-        }
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Wait);
-            await Task.Delay(800);
-            this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Arrow);
-            await Task.Delay(400);
-            this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Wait);
-            await Task.Delay(2300);
-            this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Arrow);
-        }
-        private void CloseGameModesAndChallengesWindow_Click(object sender, RoutedEventArgs e)
-        {
-            this.GameModesAndChallengesWindow.Visibility = Visibility.Collapsed;
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
-        }
-        private void DifficutlyLevelRelax_Click(object sender, RoutedEventArgs e)
-        {
-            clickPlay.Source = MediaSource.CreateFromUri(ToAppUri("/Assets/Sounds/click.mp3"));
-            clickPlay.Volume = 0.1;
-            clickPlay.Play();
+            Point position = e.GetCurrentPoint(grid).Position;
+            double marginLeft = position.X + grid.Margin.Left - _mouseDownLocation.X;
+            double marginTop = position.Y + grid.Margin.Top - _mouseDownLocation.Y;
+            grid.Margin = new Thickness(marginLeft, marginTop, grid.Margin.Right, grid.Margin.Bottom);
         }
     }
 }
