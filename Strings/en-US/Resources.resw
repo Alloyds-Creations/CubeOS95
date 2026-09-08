@@ -162,7 +162,7 @@
   <data name="DefragmentationString.Text" xml:space="preserve">
     <value>Defragmentation</value>
   </data>
-    <data name="AppTitleBarTitle" xml:space="preserve">
-    <value>CubeOS 95 - Version 0.2.1 Alpha</value>
+  <data name="AppTitleBarTitle" xml:space="preserve">
+    <value>CubeOS 95 - Version 0.2.2 Alpha</value>
   </data>
 </root>

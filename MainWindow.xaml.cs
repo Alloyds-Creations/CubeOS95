@@ -2,6 +2,7 @@
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using System;
 using System.Reflection;
@@ -63,13 +64,11 @@ namespace CubeOS95
         {
             DispatcherQueue.TryEnqueue(DispatcherQueuePriority.Normal, ApplySystemTheme);
         }
-
         private void ApplySystemTheme()
         {
             ApplyMenuTheme();
             ApplyTitleBarTheme();
         }
-
         private void ApplyTitleBarTheme()
         {
             bool isDark = IsSystemUsingDarkTheme();
@@ -103,7 +102,6 @@ namespace CubeOS95
             titleBar.ButtonInactiveBackgroundColor = background;
             titleBar.ButtonInactiveForegroundColor = inactiveForeground;
         }
-
         private void ApplyMenuTheme()
         {
             IntPtr module = LoadLibrary("uxtheme.dll");
@@ -126,7 +124,6 @@ namespace CubeOS95
                 Marshal.GetDelegateForFunctionPointer<FlushMenuThemesDelegate>(flushMenuThemes)();
             }
         }
-
         private bool IsSystemUsingDarkTheme()
         {
             Windows.UI.Color background = systemUiSettings.GetColorValue(UIColorType.Background);

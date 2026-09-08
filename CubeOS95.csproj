@@ -13,21 +13,24 @@
     <PackageId>CubeOS95</PackageId>
     <Authors>Alloyd031 and others</Authors>
     <Company>Alloyd's Creations</Company>
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SelfContained>true</SelfContained>
   	<WindowsPackageType>None</WindowsPackageType>
-	  <PublishAot>true</PublishAot>
-	  <AssemblyName>CubeOS 95</AssemblyName>
-	  <AssemblyTitle>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</AssemblyTitle>
-	  <Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
-	  <Product>CubeOS 95</Product>
-		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<PublishAot>true</PublishAot>
+	<SelfContained>true</SelfContained>
+	<AssemblyName>CubeOS 95</AssemblyName>
+	<AssemblyTitle>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</AssemblyTitle>
+	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
+	<Product>CubeOS 95</Product>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   	<Nullable>enable</Nullable>
-	  <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-  	<Version>0.2.1</Version>
-	  <AssemblyVersion>0.2.1</AssemblyVersion>
-	  <FileVersion>0.2.1</FileVersion>
-	  <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+  	<Version>0.2.2</Version>
+	<AssemblyVersion>0.2.2</AssemblyVersion>
+	<FileVersion>0.2.2</FileVersion>
+	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+	<Description>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</Description>
+	<BaseOutputPath>build</BaseOutputPath>
   </PropertyGroup>
 
   <Target Name="SetGitInformationalVersion" BeforeTargets="GetAssemblyAttributes" Condition="'$(DesignTimeBuild)' != 'true'">
@@ -190,6 +193,16 @@
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\StoreLogo.scale-100.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Assets\StoreLogo.scale-125.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="GameIntro.xaml">
