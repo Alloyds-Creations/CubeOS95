@@ -1551,11 +1551,12 @@
             PointerPressed="Desktop_PointerPressed">
             <StackPanel
                 x:Name="LeftDesktopIcons"
+                Width="120"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top">
                 <StackPanel
                     x:Name="MyMenuPanel"
-                    Margin="21,14,0,0"
+                    Margin="0,14,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top">
                     <Button
@@ -1653,7 +1654,7 @@
                 </StackPanel>
                 <StackPanel
                     x:Name="CubenetPanel"
-                    Margin="18,21,0,0"
+                    Margin="0,21,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top">
                     <Button
@@ -1751,7 +1752,7 @@
                 </StackPanel>
                 <StackPanel
                     x:Name="AchievementsPanel"
-                    Margin="21,22,0,0"
+                    Margin="0,22,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top">
                     <Button
@@ -1850,7 +1851,7 @@
                 </StackPanel>
                 <StackPanel
                     x:Name="CalendarPanel"
-                    Margin="21,31,0,0"
+                    Margin="0,31,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top">
                     <Button
@@ -1949,13 +1950,15 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel
+                Width="140"
                 x:Name="RightDesktopIcons"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom">
                 <StackPanel
                     x:Name="BinPanel"
-                    Margin="0,0,52,33"
-                    HorizontalAlignment="Right"
+                    Margin="0,0,0,33"
+                    Width="200"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Bottom">
                     <Button
                         x:Name="Bin"
@@ -1982,6 +1985,7 @@
                         <Image
                             Width="48"
                             Height="56"
+                            HorizontalAlignment="Center"
                             Source="/OperatingSystems/CubeOS95/Resources/Icons/binicon.png" />
                         <Button.Style>
                             <Style TargetType="Button">
@@ -2053,8 +2057,9 @@
                 </StackPanel>
                 <StackPanel
                     x:Name="DefragmentationPanel"
-                    Margin="0,0,20,234"
-                    HorizontalAlignment="Right"
+                    Width="200"
+                    Margin="0,0,0,234"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Bottom">
                     <Button
                         x:Name="Defragmentation"
@@ -2081,6 +2086,7 @@
                         <Image
                             Width="48"
                             Height="56"
+                            HorizontalAlignment="Center"
                             Source="/OperatingSystems/CubeOS95/Resources/Icons/defragmentationicon32.png" />
                         <Button.Style>
                             <Style TargetType="Button">
@@ -2152,8 +2158,9 @@
                 </StackPanel>
                 <StackPanel
                     x:Name="MediaPlayerPanel"
-                    Margin="0,0,29,39"
-                    HorizontalAlignment="Right"
+                    Margin="0,0,0,39"
+                    Width="200"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Bottom">
                     <Button
                         x:Name="MediaPlayer"

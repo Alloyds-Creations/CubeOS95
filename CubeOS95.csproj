@@ -14,23 +14,21 @@
     <Authors>Alloyd031 and others</Authors>
     <Company>Alloyd's Creations</Company>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <SelfContained>true</SelfContained>
-  	<WindowsPackageType>None</WindowsPackageType>
 	<PublishAot>true</PublishAot>
-	<SelfContained>true</SelfContained>
 	<AssemblyName>CubeOS 95</AssemblyName>
 	<AssemblyTitle>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</AssemblyTitle>
 	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
 	<Product>CubeOS 95</Product>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
-  	<Nullable>enable</Nullable>
 	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
   	<Version>0.2.2</Version>
+	<Nullable>enable</Nullable>
 	<AssemblyVersion>0.2.2</AssemblyVersion>
 	<FileVersion>0.2.2</FileVersion>
-	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+	<TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
 	<Description>CubeOS 95 is a Progressbar95 remake written in C# and WinUI 3.</Description>
 	<BaseOutputPath>build</BaseOutputPath>
+	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <Target Name="SetGitInformationalVersion" BeforeTargets="GetAssemblyAttributes" Condition="'$(DesignTimeBuild)' != 'true'">
