@@ -4,7 +4,6 @@ using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Threading.Tasks;
-using WinUI3Localizer;
 
 namespace CubeOS95
 {
@@ -13,14 +12,6 @@ namespace CubeOS95
         public GameIntro()
         {
             InitializeComponent();
-        }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            if (Localizer.Get() is ILocalizer localizer)
-            {
-                await localizer.SetLanguage(GameSettings.CurrentLanguage);
-            }
         }
         private async void GameIntro_Loaded(object sender, RoutedEventArgs e)
         {

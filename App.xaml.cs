@@ -3,7 +3,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
-using WinUI3Localizer;
 using WinUIEx;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -31,22 +30,8 @@ namespace CubeOS95
         /// <param name="args">Details about the launch request and process.</param>
         protected async override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            string stringsFolderPath = Path.Combine(AppContext.BaseDirectory, "Strings");
-
-            ILocalizer localizer = await new LocalizerBuilder()
-                .AddStringResourcesFolderForLanguageDictionaries(stringsFolderPath)
-                .SetOptions(options =>
-                {
-                    options.DefaultLanguage = "en-US";
-                })
-                .Build();
-
-            GameSettingsData settings = GameSettings.Load();
-            await localizer.SetLanguage(settings.Language);
-
             m_window = new MainWindow(1380, 807, 0, 0);
             m_window.Activate();
-            MainWindow.UpdateTitle();
         }
 
         public static WindowEx? m_window;

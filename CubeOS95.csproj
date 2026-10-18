@@ -9,29 +9,25 @@
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
     <UseWPF>False</UseWPF>
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SelfContained>true</SelfContained>
   	<WindowsPackageType>None</WindowsPackageType>
-	  <PublishAot>true</PublishAot>
+	<PublishAot>true</PublishAot>
     <PublishSingleFile>true</PublishSingleFile>
-	  <AssemblyName>CubeOS 95</AssemblyName>
-	  <Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
-	  <Product>CubeOS 95</Product>
-	  <Description>A Progressbar95 remake in C# and WinUI 3.</Description>
-	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	<Authors>Alloyd031</Authors>
+	<AssemblyDescription>A Progressbar95 remake in C# and WinUI 3.</AssemblyDescription>
+	<AssemblyName>CubeOS 95</AssemblyName>
+	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
+	<Product>CubeOS 95</Product>
+	<Description>A Progressbar95 remake in C# and WinUI 3.</Description>
+	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   	<Nullable>enable</Nullable>
-	  <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-  	<Version>0.2.0.0</Version>
-	  <AssemblyVersion>0.2.0.0</AssemblyVersion>
-	  <FileVersion>0.2.0.0</FileVersion>
-	  <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+  	<Version>0.3.0.0</Version>
+	<AssemblyVersion>0.3.0.0</AssemblyVersion>
+	<FileVersion>0.3.0.0</FileVersion>
+	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
   </PropertyGroup>
-
-	<ItemGroup>
-		<Content Include="Strings\**\*.resw">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
 	
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -115,8 +111,7 @@
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.4.0" />
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.4.0" />
-    <PackageReference Include="WinUI3Localizer" Version="2.3.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
     <PackageReference Include="WinUIEx" Version="2.9.3" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
