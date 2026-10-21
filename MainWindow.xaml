@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <winex:WindowEx.SystemBackdrop>
-        <MicaBackdrop Kind="BaseAlt"/>
+        <MicaBackdrop Kind="Base"/>
     </winex:WindowEx.SystemBackdrop>
     
     <Grid>

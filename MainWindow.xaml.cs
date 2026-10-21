@@ -23,6 +23,7 @@ namespace CubeOS95
             SetTitleBar(AppTitleBar);
             AppWindow.SetIcon("Assets/icon.ico");
             AppWindow.TitleBar.IconShowOptions = IconShowOptions.HideIconAndSystemMenu;
+            AppWindow.TitleBar.PreferredTheme = TitleBarTheme.UseDefaultAppMode;
             AppWindow.Resize(new SizeInt32(1380, 807));
 
             OverlappedPresenter presenter = OverlappedPresenter.Create();

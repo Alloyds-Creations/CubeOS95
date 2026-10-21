@@ -13,9 +13,8 @@
     <SelfContained>true</SelfContained>
   	<WindowsPackageType>None</WindowsPackageType>
 	<PublishAot>true</PublishAot>
-    <PublishSingleFile>true</PublishSingleFile>
 	<Authors>Alloyd031</Authors>
-	<AssemblyDescription>A Progressbar95 remake in C# and WinUI 3.</AssemblyDescription>
+	<AssemblyTitle>A Progressbar95 remake in C# and WinUI 3.</AssemblyTitle>
 	<AssemblyName>CubeOS 95</AssemblyName>
 	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
 	<Product>CubeOS 95</Product>
@@ -27,6 +26,9 @@
 	<AssemblyVersion>0.3.0.0</AssemblyVersion>
 	<FileVersion>0.3.0.0</FileVersion>
 	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+	<Company>Alloyd's Creations</Company>
+	<PackageIcon>icon.png</PackageIcon>
+	<PackageOutputPath>build</PackageOutputPath>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -169,6 +171,12 @@
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Alloyd\Desktop\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="GameIntro.xaml">
