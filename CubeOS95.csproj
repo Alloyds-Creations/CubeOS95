@@ -12,7 +12,9 @@
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <SelfContained>true</SelfContained>
   	<WindowsPackageType>None</WindowsPackageType>
-	<PublishAot>true</PublishAot>
+	<PublishTrimmed>true</PublishTrimmed>
+  <PublishAot>true</PublishAot>
+  <PublishSingleFile>true</PublishSingleFile>
 	<Authors>Alloyd031</Authors>
 	<AssemblyTitle>A Progressbar95 remake in C# and WinUI 3.</AssemblyTitle>
 	<AssemblyName>CubeOS 95</AssemblyName>
@@ -22,9 +24,8 @@
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   	<Nullable>enable</Nullable>
 	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-  	<Version>0.3.0.0</Version>
-	<AssemblyVersion>0.3.0.0</AssemblyVersion>
-	<FileVersion>0.3.0.0</FileVersion>
+	<AssemblyVersion>0.3.0</AssemblyVersion>
+	<FileVersion>0.3.0</FileVersion>
 	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
 	<Company>Alloyd's Creations</Company>
 	<PackageIcon>icon.png</PackageIcon>
@@ -125,19 +126,6 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Page Update="BIOS_Settings.xaml">
