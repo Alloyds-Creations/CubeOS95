@@ -144,10 +144,4 @@
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="C:\Users\Alloyd\Desktop\icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 </Project>
