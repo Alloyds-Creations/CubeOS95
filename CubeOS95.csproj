@@ -20,12 +20,16 @@
 	<AssemblyName>CubeOS 95</AssemblyName>
 	<Copyright>Copyright (c) 2026 Alloyd's Creations. All rights reserved.</Copyright>
 	<Product>CubeOS 95</Product>
+  <AssemblyDescription>A Progressbar95 remake in C# and WinUI 3.</AssemblyDescription>
+  <PackageId>CubeOS95</PackageId>
 	<Description>A Progressbar95 remake in C# and WinUI 3.</Description>
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   	<Nullable>enable</Nullable>
 	<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
-	<AssemblyVersion>0.3.0</AssemblyVersion>
-	<FileVersion>0.3.0</FileVersion>
+	<AssemblyVersion>0.3.2</AssemblyVersion>
+	<FileVersion>0.3.2</FileVersion>
+  <Version>0.3.2</Version>
+  <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 	<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
 	<Company>Alloyd's Creations</Company>
 	<PackageIcon>icon.png</PackageIcon>
@@ -127,26 +131,6 @@
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Update="BIOS_Settings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="BIOS_Settings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="OSSelect.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="OperatingSystems\System95OS.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
@@ -165,15 +149,5 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="GameIntro.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="BIOS_Settings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 </Project>
