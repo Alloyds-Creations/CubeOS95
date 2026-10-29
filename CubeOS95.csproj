@@ -34,6 +34,9 @@
 	<Company>Alloyd's Creations</Company>
 	<PackageIcon>icon.png</PackageIcon>
 	<PackageOutputPath>build</PackageOutputPath>
+	<Title>CubeOS95</Title>
+	<NeutralLanguage>en-US</NeutralLanguage>
+	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -117,7 +120,7 @@
     <PackageReference Include="CommunityToolkit.WinUI.Extensions" Version="8.2.251219" />
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.4.0" />
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.1" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2957" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.4" />
     <PackageReference Include="WinUIEx" Version="2.9.3" />
     <Manifest Include="$(ApplicationManifest)" />
@@ -143,5 +146,11 @@
   <ItemGroup>
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\intro_cos95.mp3" />
     <Content Include="OperatingSystems\CubeOS95\Resources\Sounds\outro_cos95.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 </Project>
